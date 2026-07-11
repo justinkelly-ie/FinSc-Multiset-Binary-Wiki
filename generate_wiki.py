@@ -1,6 +1,6 @@
 import os
 
-WIKI_DIR = "/var/home/justin/Projects/Idris2-Logic-Wiki/Library/Wiki/Finite_Science"
+WIKI_DIR = "/var/home/justin/Projects/Idris2-Logic-Wiki/Library/Wiki"
 os.makedirs(WIKI_DIR, exist_ok=True)
 
 pages = [

@@ -13,7 +13,7 @@ At this probability bounds layer, the states represent interval boundaries $[lo,
 ### Type Definition
 
 ```idris
-module Finite_Science.Boole_Last_Challenge
+module Boole_Last_Challenge
 
 import QuickCheck
 import Math.Multiset

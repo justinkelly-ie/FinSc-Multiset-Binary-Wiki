@@ -6,7 +6,7 @@ demonstrates how the pointwise truth-table method resolves propositional
 deductions mechanically, without clever identity manipulation.
 
 ```idris
-module Finite_Science.Boole_mobius_transform
+module Boole_mobius_transform
 
 import QuickCheck
 import Data.List

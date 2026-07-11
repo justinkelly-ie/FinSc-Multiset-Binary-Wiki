@@ -1,15 +1,15 @@
 module Main
 
 import QuickCheck
-import Finite_Science.Singleton_Explainer
-import Finite_Science.Singleton_Lifted
-import Finite_Science.Singleton_Repetition
-import Finite_Science.Boole_Last_Challenge
-import Finite_Science.Bit_vexel
-import Finite_Science.Boole_Function
-import Finite_Science.Boole_mobius_transform
-import Finite_Science.IndivisibleHistory
-import Code.Engine_Verification
+import Singleton_Explainer
+import Singleton_Lifted
+import Singleton_Repetition
+import Boole_Last_Challenge
+import Bit_vexel
+import Boole_Function
+import Boole_mobius_transform
+import IndivisibleHistory
+import Engine_Verification
 
 import System.File
 import Data.String
@@ -52,16 +52,16 @@ main = do
   let resBooleChallenge = quickCheck prop_booleChallengeBounds
   
   putStrLn "Running Test 2: Boole Function Evaluation Correctness"
-  let resBF1 = quickCheck Finite_Science.Boole_Function.prop_evalCorrect
+  let resBF1 = quickCheck Boole_Function.prop_evalCorrect
   
   putStrLn "Running Test 3: Boole Function & Polynumber Isomorphism"
-  let resBF2 = quickCheck Finite_Science.Boole_Function.prop_polynumberIsomorphism
+  let resBF2 = quickCheck Boole_Function.prop_polynumberIsomorphism
   
   putStrLn "Running Test 4: Sir Galahad's Deduction (Stone Road)"
-  let resBF3 = quickCheck Finite_Science.Boole_mobius_transform.prop_galadhadChoosesStone
+  let resBF3 = quickCheck Boole_mobius_transform.prop_galadhadChoosesStone
   
   putStrLn "Running Test 5: Boole-Möbius Transform Self-Inverse on Sequence"
-  let resBF4 = quickCheck Finite_Science.Boole_mobius_transform.prop_mobiusSelfInverseOnSeq
+  let resBF4 = quickCheck Boole_mobius_transform.prop_mobiusSelfInverseOnSeq
 
   putStrLn "Running Test 6: Indivisible History Trajectory"
   let resIndivisibleHistory = quickCheck prop_indivisibleHistoryLength
@@ -94,6 +94,6 @@ main = do
   Right () <- writeFile "Library/Wiki/Verification_Matrix.md" (preamble ++ tableStr)
     | Left err => putStrLn "Failed to write Verification_Matrix.md file."
   putStrLn "\n--- Engine Verification ---"
-  Code.Engine_Verification.main
+  Engine_Verification.main
 
   putStrLn "\nTests complete. Results written to Library/Wiki/Verification_Matrix.md!"

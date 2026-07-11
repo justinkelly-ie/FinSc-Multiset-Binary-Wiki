@@ -3,7 +3,7 @@
 This chapter formalizes Norman Wildberger's definition of Boolean functions as mappings $B_2^n \to B_2$, represented as truth tables and linked with polynomials via the Boole-Möbius transform.
 
 ```idris
-module Finite_Science.Boole_Function
+module Boole_Function
 
 import QuickCheck
 import Data.List

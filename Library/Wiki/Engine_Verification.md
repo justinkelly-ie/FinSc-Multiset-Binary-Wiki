@@ -3,7 +3,7 @@
 The QuickCheck engine is the "Oracle" of our Antifragile system. To trust our libraries, we must first trust the engine that verifies them. In this chapter, we perform a series of sanity checks on the core QuickCheck machinery.
 
 ```idris
-module Code.Engine_Verification
+module Engine_Verification
 
 import QuickCheck
 import Data.List

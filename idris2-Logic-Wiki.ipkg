@@ -6,14 +6,14 @@ depends = base, contrib, idris2-QuickCheck, idris2-Multiset, idris2-Singleton, i
 
 sourcedir = "Library/Wiki"
 
-modules = Finite_Science.Singleton_Explainer,
-          Finite_Science.Singleton_Lifted,
-          Finite_Science.Singleton_Repetition,
-          Finite_Science.Boole_Last_Challenge,
-          Finite_Science.Bit_vexel,
-          Finite_Science.Boole_Function,
-          Finite_Science.Boole_mobius_transform,
-          Finite_Science.IndivisibleHistory,
-          Code.Engine_Verification
+modules = Singleton_Explainer,
+          Singleton_Lifted,
+          Singleton_Repetition,
+          Boole_Last_Challenge,
+          Bit_vexel,
+          Boole_Function,
+          Boole_mobius_transform,
+          IndivisibleHistory,
+          Engine_Verification
 
 main = Main

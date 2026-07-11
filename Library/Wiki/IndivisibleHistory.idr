@@ -1,4 +1,4 @@
-module Finite_Science.IndivisibleHistory
+module IndivisibleHistory
 
 import QuickCheck
 import Math.BoxInt
