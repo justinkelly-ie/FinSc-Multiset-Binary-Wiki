@@ -13,7 +13,7 @@ At this positional layer, the states represent binary registers with integer wei
 ### Type Definition
 
 ```idris
-module Singleton_Lifted
+module Logic_Lifted
 
 import Math.Singleton.Sing
 import Math.Vexel.Vexel

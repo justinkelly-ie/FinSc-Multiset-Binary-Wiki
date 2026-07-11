@@ -14,7 +14,7 @@ The Singleton type system uses two principal primitives to represent coordinates
 *   `DepVexel c a xs`: A dependently typed list of singletons tracking coordinate elements in the type signature `xs : List a`.
 
 ```idris
-module Singleton_Explainer
+module Logic_Explainer
 
 import Math.Singleton.Sing
 import Math.Vexel.Vexel

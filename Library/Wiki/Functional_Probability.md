@@ -28,7 +28,7 @@ $$\text{MSetFraction} = \frac{\text{QUANTIFIED MSET} \;\{w \cdot [\text{valid}]\
 
 In Row 1 and Row 2, the scale was locked to the unit constant ($1$). In Row 3, the denominator **generalizes to the total mass of the unnormalized distribution** ($\sum w$). This allows the probability scale to adjust dynamically based on the total weight of the sample space.
 
-The `BitFraction` type enforces the structure of Row 3 in the singleton architecture, corresponding directly to the compiled type `MSetFractionVexel` in the [Singleton.FunctionalProbability](file:///var/home/justin/Projects/Idris2-Logic/src/Singleton/FunctionalProbability.idr#L55-L59) library:
+The `BitFraction` type enforces the structure of Row 3 in the singleton architecture, corresponding directly to the compiled type `MSetFractionVexel` in the [Logic.FunctionalProbability](file:///var/home/justin/Projects/Idris2-Logic/src/Logic/FunctionalProbability.idr#L55-L59) library:
 
 ```idris
 record BitFraction (v : Type) where

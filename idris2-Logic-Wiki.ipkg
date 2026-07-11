@@ -2,13 +2,13 @@ package idris2-Logic-Wiki
 version = 0.1.0
 executable = boolewiki
 
-depends = base, contrib, idris2-QuickCheck, idris2-Multiset, idris2-Singleton, idris2-LUniverse, idris2-chromogeometry
+depends = base, contrib, idris2-QuickCheck, idris2-Multiset, idris2-Logic, idris2-LUniverse, idris2-chromogeometry
 
 sourcedir = "Library/Wiki"
 
-modules = Singleton_Explainer,
-          Singleton_Lifted,
-          Singleton_Repetition,
+modules = Logic_Explainer,
+          Logic_Lifted,
+          Logic_Repetition,
           Boole_Last_Challenge,
           Bit_vexel,
           Boole_Function,

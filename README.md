@@ -1,8 +1,8 @@
 # idris2-Logic-Wiki
 
-**The living, executable mathematical documentation for [idris2-Boole](https://github.com/justinkelly-ie/Idris2-Boole) and [idris2-Singleton](https://github.com/justinkelly-ie/Idris2-Boole) libraries.**
+**The living, executable mathematical documentation for [idris2-Logic](https://github.com/justinkelly-ie/Idris2-Logic) library.**
 
-[![Idris2](https://img.shields.io/badge/Idris2-Boole-blue.svg)](https://github.com/idris-lang/Idris2)
+[![Idris2](https://img.shields.io/badge/Idris2-Logic-blue.svg)](https://github.com/idris-lang/Idris2)
 [![Wiki](https://img.shields.io/badge/Wiki-Living_Docs-red.svg)]()
 [![Tests](https://img.shields.io/badge/QuickCheck-5_passing-green.svg)]()
 
@@ -10,7 +10,7 @@
 
 ## Overview
 
-Welcome to the **Idris2 Boole Wiki**. This repository contains the executable documentation, theoretical foundations, and compile-time proofs for Norman Wildberger's *Algebra of Boole* and the restricted singleton type hierarchy (`Sing`/`Sing1`) in the Finite-Science model.
+Welcome to the **Idris2 Logic Wiki**. This repository contains the executable documentation, theoretical foundations, and compile-time proofs for Norman Wildberger's *Algebra of Boole* and the restricted logic type hierarchy (`Sing`/`Sing1`) in the Finite-Science model.
 
 Like the parent science wiki, this library is **executable**. Every chapter is written in **Literate Idris 2 (`.md`)** combining Markdown explanations with functional code blocks. When built, the package compiles and runs QuickCheck property-testing suites to verify that logical deductions, boundary inequalities, and algebraic invariants remain mathematically intact.
 
@@ -20,26 +20,26 @@ Like the parent science wiki, this library is **executable**. Every chapter is w
 
 This wiki documents the first four layers of the Global Finite Science Table, tracing the progression from binary logic to polyhedral probability bounds:
 
-### [1. Singleton Repetition & Bit Vexels](Library/Wiki/Bit_vexel.md)
-*   **[Bit Vexels & Operators](Library/Wiki/Bit_vexel.md)** — Guide to constructing digital logic circuits using multiset-based singleton algebra.
-*   **[Singleton Repetition](Library/Wiki/Singleton_Repetition.md)** — Modulo-2 digital logic wires using `BF2` coefficients.
-*   **[Singleton Explainer](Library/Wiki/Singleton_Explainer.md)** — Core type definitions of `Sing`, `Sing1`, and dependently typed `DepVexel` registers.
+### [1. Logic Repetition & Bit Vexels](Library/Wiki/Finite_Science/Bit_vexel.md)
+*   **[Bit Vexels & Operators](Library/Wiki/Finite_Science/Bit_vexel.md)** — Guide to constructing digital logic circuits using multiset-based logic algebra.
+*   **[Logic Repetition](Library/Wiki/Finite_Science/Logic_Repetition.md)** — Modulo-2 digital logic wires using `BF2` coefficients.
+*   **[Logic Explainer](Library/Wiki/Finite_Science/Logic_Explainer.md)** — Core type definitions of `Sing`, `Sing1`, and dependently typed `DepVexel` registers.
 
-### [2. Lifted Polynumbers & Positional Arithmetic](Library/Wiki/Singleton_Lifted.md)
-*   **[Singleton Lifted Polynumbers](Library/Wiki/Singleton_Lifted.md)** — Transition from logic gates to continuous arithmetic circuits by lifting coefficients to `BoxInt`.
+### [2. Lifted Polynumbers & Positional Arithmetic](Library/Wiki/Finite_Science/Logic_Lifted.md)
+*   **[Logic Lifted Polynumbers](Library/Wiki/Finite_Science/Logic_Lifted.md)** — Transition from logic gates to continuous arithmetic circuits by lifting coefficients to `BoxInt`.
 
-### [3. Functional Probability & Hehner Normalization](Library/Wiki/Functional_Probability.md)
-*   **[Functional Probability](Library/Wiki/Functional_Probability.md)** — Exact rational probability vectors using cross-multiplication over variable sum denominators ($\sum w$).
+### [3. Functional Probability & Hehner Normalization](Library/Wiki/Finite_Science/Functional_Probability.md)
+*   **[Functional Probability](Library/Wiki/Finite_Science/Functional_Probability.md)** — Exact rational probability vectors using cross-multiplication over variable sum denominators ($\sum w$).
 
-### [4. Probability Bounds & Polyhedral Squeezing](Library/Wiki/Boole_Last_Challenge.md)
-*   **[George Boole's Last Challenge Problem](Library/Wiki/Boole_Last_Challenge.md)** — Applying the Boole-Möbius transform and polyhedral boundary inequalities to resolve George Boole's 1854 union probability challenge.
+### [4. Probability Bounds & Polyhedral Squeezing](Library/Wiki/Finite_Science/Boole_Last_Challenge.md)
+*   **[George Boole's Last Challenge Problem](Library/Wiki/Finite_Science/Boole_Last_Challenge.md)** — Applying the Boole-Möbius transform and polyhedral boundary inequalities to resolve George Boole's 1854 union probability challenge.
 
 ---
 
 ## Algebraic Transformation & Sequences
 
-*   **[Boole-Möbius Transform (Sir Galahad)](Library/Wiki/Boole_mobius_transform.md)** — Resolving Sir Galahad's three-premises liar puzzle via component-wise truth tables and verification of the self-inverse property.
-*   **[On-Sequences & Clips](Library/Wiki/On_Sequence.md)** — Finitist foundations representing ongoing sequences and consecutive observation windows.
+*   **[Boole-Möbius Transform (Sir Galahad)](Library/Wiki/Finite_Science/Boole_mobius_transform.md)** — Resolving Sir Galahad's three-premises liar puzzle via component-wise truth tables and verification of the self-inverse property.
+*   **[On-Sequences & Clips](Library/Wiki/Finite_Science/On_Sequence.md)** — Finitist foundations representing ongoing sequences and consecutive observation windows.
 
 ---
 

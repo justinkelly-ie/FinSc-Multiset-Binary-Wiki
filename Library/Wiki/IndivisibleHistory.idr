@@ -8,8 +8,8 @@ import Math.Singleton.Sing
 import Math.Multiset
 import Simplex.Core
 import Data.List
-import Singleton.FunctionalProbability
-import Singleton.MobiusTransform
+import Logic.FunctionalProbability
+import Logic.MobiusTransform
 
 %default total
 

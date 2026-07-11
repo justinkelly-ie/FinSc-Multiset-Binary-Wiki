@@ -1,9 +1,9 @@
 module Main
 
 import QuickCheck
-import Singleton_Explainer
-import Singleton_Lifted
-import Singleton_Repetition
+import Logic_Explainer
+import Logic_Lifted
+import Logic_Repetition
 import Boole_Last_Challenge
 import Bit_vexel
 import Boole_Function

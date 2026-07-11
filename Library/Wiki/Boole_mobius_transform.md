@@ -17,7 +17,7 @@ import Math.Multiset
 import Math.OnSeq.OnMSet
 import Math.Singleton.Bit
 import Math.Vexel.Byte
-import Singleton.MobiusTransform
+import Logic.MobiusTransform
 
 %default total
 ```

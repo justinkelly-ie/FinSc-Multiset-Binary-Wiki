@@ -1,6 +1,6 @@
-# Finite Science Formalizations (Boole & Singleton)
+# Finite Science Formalizations (Boole & Logic)
 
-This wiki documents the dependent-type level proofs and structural mappings of the Algebra of Boole and Singleton layers.
+This wiki documents the dependent-type level proofs and structural mappings of the Algebra of Boole and Logic layers.
 
 - [Digital Repetition (Algebra of Boole)](./Digital_Repetition.md)
 - [Lifted Polynumbers (Arithmetic Circuits)](./Lifted_Polynumbers.md)

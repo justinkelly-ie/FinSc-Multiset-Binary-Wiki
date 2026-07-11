@@ -26,8 +26,8 @@ import Math.Singleton.Bit
 import Math.BoxInt
 import Math.Vexel.Transformation
 import Math.Singleton.SBFMset
-import Singleton.Circuit
-import Singleton.BoolePolynumber
+import Logic.Circuit
+import Logic.BoolePolynumber
 import Math.Vexel.Byte
 
 vexelToMSetRuntime : List (Sing c a) -> List (a, c)

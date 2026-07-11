@@ -11,9 +11,9 @@ import Math.Singleton.Sing
 import Math.BoxInt
 import Math.Multiset
 import Math.Singleton.Bit
-import Singleton.BooleFunction
-import Singleton.BoolePolynumber
-import Singleton.MobiusTransform
+import Logic.BooleFunction
+import Logic.BoolePolynumber
+import Logic.MobiusTransform
 
 %default total
 ```

@@ -3,10 +3,10 @@ type = "local"
 path = "."
 ipkg = "idris2-Logic-Wiki.ipkg"
 
-[custom.all.idris2-Singleton]
+[custom.all.idris2-Logic]
 type = "local"
 path = "../Idris2-Logic"
-ipkg = "idris2-Singleton.ipkg"
+ipkg = "idris2-Logic.ipkg"
 
 [custom.all.idris2-Multiset]
 type = "local"

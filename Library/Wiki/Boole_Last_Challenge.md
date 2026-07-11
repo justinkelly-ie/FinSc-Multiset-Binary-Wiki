@@ -20,7 +20,7 @@ import Math.Multiset
 import Math.Pixel
 import Math.BoxInt
 import Math.SignedFraction
-import Singleton.MobiusTransform
+import Logic.MobiusTransform
 
 -- The 5-coordinate system for Boole's challenge parameters
 data ChallengeCoord = A | B | C | ABC | Unity
