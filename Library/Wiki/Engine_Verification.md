@@ -13,6 +13,9 @@ import Math.BoxInt
 import Math.Multiset
 import Math.Singleton.SingFraction
 import Math.Vexel.Transformation
+import Math.Vexel.Byte
+import Math.Vexel.Vexel
+import Math.Singleton.Bit
 
 %default total
 ```
@@ -57,21 +60,21 @@ prop_listAppendCommutative = forAll {a = (List Int, List Int)} {prop = Bool} arb
 We run these tests and observe the engine's output. For the false property, we expect to see a "Falsifiable" message with the offending arguments.
 
 ```idris
-||| Verifies that applyTransformation of notGate on ZeroS equals OneS "out" O.
+||| Verifies that applyTransformationVexel of notGate on inactive input (only bias active) equals [MkSing (VarState "out")].
 prop_notGateZero : Bool
 prop_notGateZero =
-  let input = ZeroS
+  let input = AddM (MkSing (ConstState BaseAnchor)) One ZeroM
       gate = notGate (VarState "in") (VarState "out")
-      output = applyTransformation input gate
-  in output == OneS "out" One
+      output = applyTransformationVexel input gate
+  in multisetToList output == multisetToList (AddM (MkSing (VarState "out")) One ZeroM)
 
-||| Verifies that applyTransformation of notGate on OneS "in" O equals ZeroS.
+||| Verifies that applyTransformationVexel of notGate on active input (bias + variable active) equals [].
 prop_notGateOne : Bool
 prop_notGateOne =
-  let input = OneS "in" One
+  let input = AddM (MkSing (ConstState BaseAnchor)) One (AddM (MkSing (VarState "in")) One ZeroM)
       gate = notGate (VarState "in") (VarState "out")
-      output = applyTransformation input gate
-  in output == ZeroS
+      output = applyTransformationVexel input gate
+  in multisetToList output == []
 
 public export
 main : IO ()

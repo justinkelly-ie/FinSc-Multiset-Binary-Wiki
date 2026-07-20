@@ -28,7 +28,7 @@ A `Bit` wraps one of these inside a `Sing` — a singleton multiset `{ m }`.
 `Bit` is a type alias, not a wrapper:
 
 ```
-Bit = Sing BoxInt (Multiset BoxInt Void)
+Bit = Sing (Multiset BoxInt (Multiset BoxInt Void))
 ```
 
 ---
@@ -132,17 +132,21 @@ Key consequences of multiplication in B₂:
 
 ### Negation and Subtraction
 
-In B₂, every element is self-inverse: `negate x = x`.
-Subtraction therefore equals addition: `x - y = x + y`.
+In the Algebra of Boole, negation is defined as the complement (adding 1): `negate x = 1 + x`.
+Consequently, negation toggles the value:
+- `negate Zero = One`
+- `negate One  = Zero`
+
+Subtraction is defined via the complement: `x - y = x + (1 + y)`.
 
 ```idris
--- Negation is identity
+-- Negation is complement
 ex_neg : Bit
-ex_neg = negate One   -- One
+ex_neg = negate One   -- Zero
 
--- Subtraction = addition
+-- Subtraction is addition of complement
 ex_sub : Bit
-ex_sub = One - One    -- Zero  (same as One + One)
+ex_sub = One - One    -- One (same as One + Zero)
 ```
 
 ### fromInteger — mod-2 embedding
@@ -235,8 +239,8 @@ The following field axioms are machine-verified in
 | `prop_mulZeroAnnihilates` | `x * Zero = Zero` |
 | `prop_mulIdempotent` | `x * x = x` |
 | `prop_distributive` | `x * (y + z) = (x * y) + (x * z)` |
-| `prop_negIdentity` | `negate x = x` |
-| `prop_subIsAdd` | `x - y = x + y` |
+| `prop_negInvolutive` | `negate (negate x) = x` |
+| `prop_subIsComplementAdd` | `x - y = x + 1 + y` |
 | `prop_natRoundTrip` | `natToBit (bitToNat x) = x` |
 | `prop_fromIntegerMod2` | `fromInteger 2 = Zero`, `fromInteger 3 = One` |
 | `prop_singEmbedding` | `toSing (fromSing x) = x` |

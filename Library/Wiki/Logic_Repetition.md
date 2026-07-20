@@ -31,8 +31,8 @@ Under modulo-2 addition (`addVexels`), identical active singleton bits in the Ve
 ```idris
 -- Verification property: adding two identical active singletons annihilates them
 public export
-prop_modulo2Collapse : Eq state => (s : state) -> (w : BVal) ->
-                       addVexels [OneS s w] [OneS s w] = []
+prop_modulo2Collapse : Eq state => (s : state) -> Bool
+prop_modulo2Collapse s = addVexels (AddM (MkSing s) One ZeroM) (AddM (MkSing s) One ZeroM) == ZeroM
 ```
 
 ---

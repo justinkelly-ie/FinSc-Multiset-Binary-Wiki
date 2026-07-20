@@ -1,6 +1,6 @@
 # ⬛ Bit2 — The Bified B₂ Field over DepMultiset
 
-> **The two-element field {0, 1} represented as a dependently typed multiset of size 1.**
+> **The two-element bi-field {0, 1} represented as a dependently typed multiset of size 1.**
 >
 > A `Bit2` is a `DepMultiset` of size 1 whose single element is itself a `Multiset`,
 > restricted to the two canonical B₂ values:
@@ -24,7 +24,7 @@ the **carrier structure**:
 
 | | `Bit` | `Bit2` |
 | :--- | :--- | :--- |
-| Carrier | `Sing BoxInt (Multiset BoxInt Void)` | `DepMultiset BoxInt (Multiset BoxInt Void) idx` |
+| Carrier | `Sing (Multiset BoxInt (Multiset BoxInt Void))` | `DepMultiset BoxInt (Multiset BoxInt (Multiset BoxInt Void)) idx` |
 | Index tracked | no (runtime only) | yes (type-level `Multiset`) |
 | Constructor style | `MkSing m` | `DepAddM m 1 DepEmptyM` |
 
@@ -33,16 +33,16 @@ share a single type alias. The runtime `Bit2` data type wraps both and erases
 the index:
 
 ```
-ZeroIdx : Multiset BoxInt (Multiset BoxInt Void)
+ZeroIdx : Multiset BoxInt (Multiset BoxInt (Multiset BoxInt Void))
 ZeroIdx = AddM ZeroM 1 ZeroM                        -- one entry: ZeroM with count 1
 
-OneIdx  : Multiset BoxInt (Multiset BoxInt Void)
+OneIdx  : Multiset BoxInt (Multiset BoxInt (Multiset BoxInt Void))
 OneIdx  = AddM (AddM ZeroM 1 ZeroM) 1 ZeroM         -- one entry: [[]] with count 1
 
-Zero2 : DepMultiset BoxInt (Multiset BoxInt Void) ZeroIdx
+Zero2 : DepMultiset BoxInt (Multiset BoxInt (Multiset BoxInt Void)) ZeroIdx
 Zero2 = DepAddM ZeroM 1 DepEmptyM                   -- element = []
 
-One2  : DepMultiset BoxInt (Multiset BoxInt Void) OneIdx
+One2  : DepMultiset BoxInt (Multiset BoxInt (Multiset BoxInt Void)) OneIdx
 One2  = DepAddM (AddM ZeroM 1 ZeroM) 1 DepEmptyM   -- element = [[]]
 ```
 
@@ -50,8 +50,8 @@ The runtime `Bit2` sum type:
 
 ```
 data Bit2 : Type where
-  Bit2Zero : DepMultiset BoxInt (Multiset BoxInt Void) ZeroIdx -> Bit2
-  Bit2One  : DepMultiset BoxInt (Multiset BoxInt Void) OneIdx  -> Bit2
+  Bit2Zero : DepMultiset BoxInt (Multiset BoxInt (Multiset BoxInt Void)) ZeroIdx -> Bit2
+  Bit2One  : DepMultiset BoxInt (Multiset BoxInt (Multiset BoxInt Void)) OneIdx  -> Bit2
 ```
 
 ---
@@ -154,17 +154,21 @@ Key consequences of multiplication in B₂:
 
 ### Negation and Subtraction
 
-In B₂, every element is self-inverse: `negate x = x`.
-Subtraction therefore equals addition: `x - y = x + y`.
+In the Algebra of Boole, negation is defined as the complement (adding 1): `negate x = 1 + x`.
+Consequently, negation toggles the value:
+- `negate b2Zero = b2One`
+- `negate b2One  = b2Zero`
+
+Subtraction is defined via the complement: `x - y = x + (1 + y)`.
 
 ```idris
--- Negation is identity
+-- Negation is complement
 ex_neg : Bit2
-ex_neg = negate b2One   -- b2One
+ex_neg = negate b2One   -- b2Zero
 
--- Subtraction = addition
+-- Subtraction is addition of complement
 ex_sub : Bit2
-ex_sub = b2One - b2One  -- b2Zero  (same as b2One + b2One)
+ex_sub = b2One - b2One  -- b2One (same as b2One + b2Zero)
 ```
 
 ### fromInteger — mod-2 embedding
@@ -271,7 +275,7 @@ The same field axioms hold for `Bit2` as for `Bit`:
 | `prop_mulZeroAnnihilates` | `x * b2Zero = b2Zero` |
 | `prop_mulIdempotent` | `x * x = x` |
 | `prop_distributive` | `x * (y + z) = (x * y) + (x * z)` |
-| `prop_negIdentity` | `negate x = x` |
-| `prop_subIsAdd` | `x - y = x + y` |
+| `prop_negInvolutive` | `negate (negate x) = x` |
+| `prop_subIsComplementAdd` | `x - y = x + 1 + y` |
 | `prop_natRoundTrip` | `natToBit2 (bit2ToNat x) = x` |
 | `prop_fromIntegerMod2` | `fromInteger 2 = b2Zero`, `fromInteger 3 = b2One` |

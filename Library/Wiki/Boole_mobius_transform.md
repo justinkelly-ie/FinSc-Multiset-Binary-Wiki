@@ -73,24 +73,26 @@ implies product conclusion =
   let terms = map (\i =>
                 let p = lookupWeight i product
                     c = lookupWeight i conclusion
-                in addBVal One (mulBVal p (addBVal One c))) [0..7]
-  in foldl mulBVal One terms == One
+                in addBit One (mulBit p (addBit One c))) [0..7]
+  in foldl mulBit One terms == One
 ```
 
 ## 3. Encoding the Premises
 
 ```idris
-||| Extract bit position k of a natural number as a BVal.
-bitOf : Integer -> Integer -> BVal
+||| Extract bit position k of a natural number as a Bit.
+bitOf : Integer -> Integer -> Bit
 bitOf 0 n = if n `mod` 2 == 0 then Zero else One
 bitOf k n = bitOf (assert_smaller k (k - 1)) (n `div` 2)
 
 ||| Build a length-8 truth table from a 3-variable boolean function.
 ||| Row i: g = bit0(i), m = bit1(i), s = bit2(i).
-truthTable3 : (BVal -> BVal -> BVal -> BVal) -> Byte Nat
-truthTable3 f = map (\i =>
-  let val = f (bitOf 0 (cast i)) (bitOf 1 (cast i)) (bitOf 2 (cast i))
-  in if val == One then OneS i One else ZeroS) [0..7]
+truthTable3 : (Bit -> Bit -> Bit -> Bit) -> Byte Nat
+truthTable3 f =
+  let list = concatMap (\i =>
+               let val = f (bitOf 0 (cast i)) (bitOf 1 (cast i)) (bitOf 2 (cast i))
+               in if val == One then [MkSing i] else []) [0..7]
+  in fromList (map (\x => (x, One)) list)
 
 -- Premise X: g * s
 export
@@ -138,26 +140,26 @@ Wildberger shows that among the three candidates, **only S is validly implied**:
 Sir Galahad should take the **stone road**.
 
 In the Algebra of Boole, negation of a truth value `v ∈ B₂` is written `1 + v`
-(addBVal One v), and conjunction is multiplication (`mulBVal`). The deduction
+(addBit One v), and conjunction is multiplication (`mulBit`). The deduction
 "¬G ∧ ¬M ∧ S" becomes:
 
 $$\text{result} = (1 + v_G) \cdot (1 + v_M) \cdot v_S = 1$$
 
 ```idris
 ||| Lift a Bool result into B₂ for use in Boole algebra expressions.
-boolToBVal : Bool -> BVal
-boolToBVal True  = One
-boolToBVal False = Zero
+boolToBit : Bool -> Bit
+boolToBit True  = One
+boolToBit False = Zero
 
 ||| Verify the Galahad deduction using only the Algebra of Boole.
 ||| ¬validG ∧ ¬validM ∧ validS = (1 + vG) * (1 + vM) * vS = 1.
 export
 prop_galadhadChoosesStone : Property
 prop_galadhadChoosesStone =
-  let vG = boolToBVal (implies conjPremises concG)
-      vM = boolToBVal (implies conjPremises concM)
-      vS = boolToBVal (implies conjPremises concS)
-  in property (mulBVal (mulBVal vG (addBVal One vM)) vS == One)
+  let vG = boolToBit (implies conjPremises concG)
+      vM = boolToBit (implies conjPremises concM)
+      vS = boolToBit (implies conjPremises concS)
+  in property (mulBit (mulBit vG (addBit One vM)) vS == One)
 ```
 
 ## 6. OnTruthTable: Self-Inverse Verification
@@ -182,5 +184,5 @@ prop_mobiusSelfInverseOnSeq : Property
 prop_mobiusSelfInverseOnSeq =
   case getTerm (mobiusTransformOnSeq mobiusGalahad) 0 of
     Nothing   => property False
-    Just recovered => property (recovered == conjPremises)
+    Just recovered => property (implies recovered conjPremises && implies conjPremises recovered)
 ```

@@ -25,15 +25,15 @@ import Math.Singleton.SingFraction
 
 ||| A positional arithmetic state numerator using BoxInt weights.
 0 ArithmeticState : (state : Type) -> Type
-ArithmeticState state = Sing BoxInt state
+ArithmeticState state = Vexel BoxInt state
 
 ||| Denominator remains locked to TrivialBase for type safety.
 0 ArithmeticDenom : Type
-ArithmeticDenom = Sing1 BoxInt TrivialBase
+ArithmeticDenom = Sing TrivialBase
 
 ||| A dependently typed arithmetic register state tracking coordinates at compile time.
-0 DepArithmeticState : (state : Type) -> (xs : Vexel BoxInt state) -> Type
-DepArithmeticState state xs = DepVexel BoxInt state (vexelToMSet xs)
+0 DepArithmeticState : (state : Type) -> (xs : Vexel Bit state) -> Type
+DepArithmeticState state xs = DepVexel state (vexelToMSet xs)
 ```
 
 ### Verification Test: Positional Carriage
@@ -44,7 +44,8 @@ We verify the transition from Row 1 to Row 2 by checking that the binary wire si
 -- Verification property: lifting a full binary singleton maps it to weight 1
 public export
 prop_liftFullSingleton : Eq state => (s : state) ->
-                         liftSingBitGateToBoxInt (OneS s One) = OneS s 1
+                         liftSingBitGateToBoxInt (AddM (MkSing s) One ZeroM) = AddM (MkSing s) 1 ZeroM
+prop_liftFullSingleton s = Refl
 ```
 
 ---

@@ -35,23 +35,23 @@ export
 prop_evalCorrect : Property
 prop_evalCorrect = forAll {a = List Bool} {prop = Bool} arbitrary (MkFn (\bools =>
   let tableBool = take 4 (bools ++ replicate 4 False)
-      vals = map (\b => if b then OneS () 1 else ZeroS) tableBool
+      vals = map (\b => if b then One else Zero) tableBool
       func = MkBooleFunction 2 vals
-      in0 = [the BVal ZeroS, the BVal ZeroS]
-      in1 = [the BVal ZeroS, OneS () 1]
-      in2 = [OneS () 1, the BVal ZeroS]
-      in3 = [OneS () 1, OneS () 1]
-  in (evaluate func in0 == fromMaybe ZeroS (lookupIndex 0 vals)) &&
-     (evaluate func in1 == fromMaybe ZeroS (lookupIndex 1 vals)) &&
-     (evaluate func in2 == fromMaybe ZeroS (lookupIndex 2 vals)) &&
-     (evaluate func in3 == fromMaybe ZeroS (lookupIndex 3 vals))))
+      in0 = [the Bit Zero, the Bit Zero]
+      in1 = [the Bit Zero, One]
+      in2 = [One, the Bit Zero]
+      in3 = [One, One]
+  in (evaluate func in0 == fromMaybe Zero (lookupIndex 0 vals)) &&
+     (evaluate func in1 == fromMaybe Zero (lookupIndex 1 vals)) &&
+     (evaluate func in2 == fromMaybe Zero (lookupIndex 2 vals)) &&
+     (evaluate func in3 == fromMaybe Zero (lookupIndex 3 vals))))
 
 ||| Verify the isomorphism between BooleFunction and BoolePolynumber.
 export
 prop_polynumberIsomorphism : Property
 prop_polynumberIsomorphism = forAll {a = List Bool} {prop = Bool} arbitrary (MkFn (\bools =>
   let tableBool = take 4 (bools ++ replicate 4 False)
-      vals = map (\b => if b then OneS () 1 else ZeroS) tableBool
+      vals = map (\b => if b then One else Zero) tableBool
       func = MkBooleFunction 2 vals
   in truthTable (fromPolynumber 2 (toPolynumber func)) == vals))
 ```

@@ -19,17 +19,18 @@ module Logic_Explainer
 import Math.Singleton.Sing
 import Math.Vexel.Vexel
 import Math.Vexel.DepVexel
+import Math.Singleton.Bit
 import Math.DepMultiset
 import Math.BoxInt
 import Math.Multiset
 
 -- A dependently typed singleton of length exactly 1
-0 DepSing1 : (c : Type) -> (a : Type) -> (token : Sing c a) -> Type
-DepSing1 c a token = DepVexel c a (vexelToMSet [token])
+0 DepSing1 : (a : Type) -> (token : Sing a) -> Type
+DepSing1 a (MkSing x) = DepVexel a [x]
 
 -- A dependently typed singleton of length at most 1 (xs is empty or a singleton)
-0 DepSing : (c : Type) -> (a : Type) -> (xs : Vexel c a) -> Type
-DepSing c a xs = DepVexel c a (vexelToMSet xs)
+0 DepSing : (a : Type) -> (xs : Vexel Bit a) -> Type
+DepSing a xs = DepVexel a (vexelToMSet xs)
 ```
 
 ### Verification Test: Compile-Time Bounds Enforcer
@@ -39,12 +40,12 @@ We verify that the type system strictly prevents building values that exceed the
 ```idris
 -- Verification property: Sing1 cannot be empty (compilation failure if empty)
 public export
-prop_sing1NonEmpty : Sing1 c a -> Bool
-prop_sing1NonEmpty (MkSing1 coord count) = True
+prop_sing1NonEmpty : Sing1 a -> Bool
+prop_sing1NonEmpty (MkSing coord) = True
 
 -- Verification property: DepSing1 contains exactly one element
 public export
-prop_depSing1HasOne : DepSing1 c a token -> Nat
+prop_depSing1HasOne : {token : Sing a} -> DepSing1 a token -> Nat
 prop_depSing1HasOne _ = 1
 ```
 

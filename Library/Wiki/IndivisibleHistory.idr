@@ -10,6 +10,7 @@ import Simplex.Core
 import Data.List
 import Logic.FunctionalProbability
 import Logic.MobiusTransform
+import Math.Vexel.Vexel
 
 %default total
 
@@ -93,7 +94,7 @@ targetDistribution hist srcNode =
     normalizeTarget tot mset tgt =
       let num = transitionCount mset (srcNode, tgt)
           numSq = num * num
-          frac = mkMSetFractionVexel (OneS tgt (intToBoxInt numSq)) (intToBoxInt tot)
+          frac = mkMSetFractionVexel (AddM (MkSing tgt) (intToBoxInt numSq) ZeroM) (intToBoxInt tot)
       in (tgt, stateProbability frac tgt)
 
 ||| Computes the exact transition probability p(i -> j).

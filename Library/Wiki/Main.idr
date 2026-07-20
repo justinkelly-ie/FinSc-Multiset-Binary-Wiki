@@ -20,14 +20,12 @@ import Math.Singleton.Sing
 
 %default covering
 
-boolToBVal : Bool -> BVal
-boolToBVal True = One
-boolToBVal False = Zero
+boolToBit : Bool -> Bit
+boolToBit True = One
+boolToBit False = Zero
 
-bvalToString : BVal -> String
-bvalToString ZeroS = "0"
-bvalToString (OneS () 1) = "1"
-bvalToString _ = "?"
+bitToString : Bit -> String
+bitToString x = if isOne x then "1" else "0"
 
 markdownTable : List (String, String, QCRes) -> String
 markdownTable results =

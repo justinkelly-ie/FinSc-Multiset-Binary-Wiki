@@ -29,11 +29,11 @@ import Math.Singleton.SBFMset
 import Logic.Circuit
 import Logic.BoolePolynumber
 import Math.Vexel.Byte
+import Math.Singleton.SingFraction
 
-vexelToMSetRuntime : List (Sing c a) -> List (a, c)
-vexelToMSetRuntime [] = []
-vexelToMSetRuntime (ZeroS :: xs) = vexelToMSetRuntime xs
-vexelToMSetRuntime (OneS x weight :: xs) = (x, weight) :: vexelToMSetRuntime xs
+vexelToMSetRuntime : Vexel Bit a -> List (a, Bit)
+vexelToMSetRuntime ZeroM = []
+vexelToMSetRuntime (AddM (MkSing x) w xs) = (x, w) :: vexelToMSetRuntime xs
 
 -- Define the pins of our logic gate
 data Pin = InA | InB | OutPin
@@ -48,12 +48,13 @@ Eq Pin where
 ---
 
 ### Step 2: Create the Input State (Vexel)
-A **Vexel** represents the state vector of our pins. In Row 1, a `Byte` is defined as a list of dependent singletons over `BF2`:
+A **Vexel** represents the state vector of our pins. In Row 1, a `Byte` is defined as a list of Singletons:
 
 ```idris
--- A Byte representing InA = 1 and InB = 0
-myInputState : Byte Pin
-myInputState = [OneS InA One] -- Active signal at InA with weight One (1)
+-- A Byte representing InA = 1 and InB = 0, along with the constant high bias anchor
+myInputState : Byte (LogicState Pin)
+myInputState = AddM (MkSing (ConstState BaseAnchor)) One (AddM (MkSing (VarState InA)) One ZeroM)
+
 ```
 
 ---
@@ -75,7 +76,7 @@ Applying the transform to our input state propagates the signals and performs mo
 
 ```idris
 -- Propagates InA through the NOT gate to OutPin
-myOutputState : Byte Pin
+myOutputState : Byte (LogicState Pin)
 myOutputState = applyTransformationVexel myInputState notGateOperator
 -- Result: Since InA was active (1), 1 + 1 annihilates to 0. OutPin remains inactive.
 ```
@@ -87,11 +88,11 @@ A **Symmetric Bilinear Form** measures the overlap (dot product) of our state. W
 
 ```idris
 -- A metric template tracking the OutPin wire activity
-outPinMetric : Multiset BVal (Pixel Blue Pin)
-outPinMetric = AddM (MkPixel OutPin OutPin) One ZeroM
+outPinMetric : Multiset Bit (Pixel Blue (LogicState Pin))
+outPinMetric = AddM (MkPixel (VarState OutPin) (VarState OutPin)) One ZeroM
 
 -- Evaluate the activity level Q(v) of the output vector
-outActivity : BVal
+outActivity : Bit
 outActivity = evalSBFMset outPinMetric (fromList (vexelToMSetRuntime myOutputState))
 ```
 
@@ -126,8 +127,8 @@ This table explains how the general multiset structures are specialized to form 
 
 | Structure | Type Definition | Role in Logic Layer | Multiset Property |
 | :--- | :--- | :--- | :--- |
-| **Sing** | `Sing BVal a` | Single active node state. | A multiset restricted to at most one element. |
-| **Sing1** | `Sing1 BVal a` | Unit divisor for fractions. | A multiset restricted to exactly one element. |
+| **Sing** | `Sing Bit a` | Single active node state. | A multiset restricted to at most one element. |
+| **Sing1** | `Sing1 Bit a` | Unit divisor for fractions. | A multiset restricted to exactly one element. |
 | **Bit** | `Bit a x weight` | Dependent singleton bit. | Statically tracks coordinate and weight. |
 | **Bit1** | `Bit1 a x` | Dependent active unit bit. | Bounded strictly to weight `One`. |
 | **Vexel** | `Byte state` | State vector (register). | A collection of singletons representing active wires. |
