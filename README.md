@@ -16,13 +16,13 @@ Like the parent science wiki, this library is **executable**. Every chapter is w
 
 ---
 
-## The Logic Layer (Row 1)
+## The Algebra of Boole (Row 1)
 
-This wiki documents the first layer of the Global Finite Science Table, tracing the structures and evaluations of Boolean logic:
+This wiki documents the first layer of the Global Finite Science Table, tracing the structures and evaluations of the Algebra of Boole:
 
 ### [1. Logic Repetition & Bit Vexels](Library/Wiki/Bit_vexel.md)
 *   **[Bit Vexels & Operators](Library/Wiki/Bit_vexel.md)** — Guide to constructing digital logic circuits using multiset-based logic algebra.
-*   **[Logic Repetition](Library/Wiki/Logic_Repetition.md)** — Modulo-2 digital logic wires using `BF2` coefficients.
+*   **[Logic Repetition](Library/Wiki/Logic_Repetition.md)** — Modulo-2 digital logic wires using `Bit` multiset coefficients.
 *   **[Logic Explainer](Library/Wiki/Logic_Explainer.md)** — Core type definitions of `Sing`, `Sing1`, and dependently typed `DepVexel` registers.
 
 ---

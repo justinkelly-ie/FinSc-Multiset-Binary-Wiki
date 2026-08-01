@@ -67,13 +67,13 @@ prop_modulo2Collapse s = addVexels (AddM (MkSing s) One ZeroM) (AddM (MkSing s) 
 | Step | Component | Role / Purpose | Type / Representation |
 | :--- | :--- | :--- | :--- |
 | **1** | **Input State** | Holds the active wire signals as singletons. | `Byte state` / `DepByte state xs` |
-| **2** | **Transformation** | The Boole Maxel mapping inputs to outputs via logic gates. | `TransformationMSet state = Multiset BF2 (SingRelation (LogicState state))` / `DepMaxel` |
-| **3** | **Symmetric Bilinear Form** | Enforces the 1x1 parity junction constraint. | `row1SBF = Multiset BF2 (Pixel Blue Coord1D)` / `DepMaxel` |
+| **2** | **Transformation** | The Boole Maxel mapping inputs to outputs via logic gates. | `TransformationMSet state = Multiset Bit (SingRelation (LogicState state))` / `DepMaxel` |
+| **3** | **Symmetric Bilinear Form** | Enforces the 1x1 parity junction constraint. | `row1SBF = Multiset Bit (Pixel Blue Coord1D)` / `DepMaxel` |
 | **4** | **Output State** | The resolved output wire state vector. | `Byte state` / `DepByte state ys` |
 
 ---
 
 ## 🔄 Row Relation & Progression: Row 1 → Row 2
 
-*   **Row 1 (Singleton Logic)**: Maps logical coordinates using `BF2` coefficients (which wrap `Sing Integer ()`). Collisions force duplicate wire states to collapse back into `[]` (Logical XOR/Inversion).
-*   **Transitioning to Row 2**: When we transition to Row 2, the coefficients are promoted from `BF2` to `BoxInt` (integers), and the denominator unit expands from `Sing1 BF2 TrivialBase` to `Sing1 BoxInt TrivialBase`. This enables weights to accumulate, turning binary wire signals into positional place values and binary carry registers (Arithmetic Circuits).
+*   **Row 1 (Singleton Logic)**: Maps logical coordinates using `Bit` coefficients (`Math.Singleton.Bit`). Collisions force duplicate wire states to collapse back into `[]` (Logical XOR/Inversion).
+*   **Transitioning to Row 2**: When we transition to Row 2, the coefficients are promoted from `Bit` to `BoxInt` (integers), and the denominator unit expands from `Sing1 Bit TrivialBase` to `Sing1 BoxInt TrivialBase`. This enables weights to accumulate, turning binary wire signals into positional place values and binary carry registers (Arithmetic Circuits).

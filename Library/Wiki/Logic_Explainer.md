@@ -82,6 +82,6 @@ prop_depSing1HasOne _ = 1
 
 ## 🔄 Row Relation & Progression: Row 1 → Row 2 → Row 3
 
-1.  **Row 1 (Singleton Logic)**: Bounded wire states are represented via `Sing BF2 state` (where `BF2` itself is defined as the recursive singleton `Sing Integer ()` with $Z = \text{ZeroS}$ and $O = \text{OneS}\ ()\ 1$). Collisions trigger modulo-2 annihilation.
+1.  **Row 1 (Singleton Logic)**: Bounded wire states are represented via `Sing Bit state` (using `Math.Singleton.Bit`). Collisions trigger modulo-2 annihilation.
 2.  **Row 2 (Positional Arithmetic)**: We lift the weights to `Sing BoxInt state` or `DepVexel BoxInt state xs`. Instead of annihilating, collisions trigger carries to higher positional registers.
 3.  **Row 3 (Rational Scales)**: The fixed denominator is lifted. The numerator and denominator generalise to arbitrary multisets (`MSetFraction` / `DepMultiset`), representing prime factors and exact rational probabilities.
