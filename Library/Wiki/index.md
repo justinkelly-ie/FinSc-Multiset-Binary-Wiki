@@ -3,8 +3,8 @@
 This wiki documents the dependent-type level proofs and structural mappings of the Algebra of Boole and Logic layers.
 
 - [Digital Repetition (Algebra of Boole)](./Digital_Repetition.md)
-- [Singleton Explainer](./Logic_Explainer.md)
-- [Singleton Repetition](./Logic_Repetition.md)
-- [Bit Vexels & Logical Operators](./Bit_vexel.md)
+- [🎛️ Singleton Explainer](./Logic_Explainer.md)
+- [🎛️ Singleton Repetition — Algebra of Boole(https://github.com/justinkelly-ie/Idris2-Boole)](./Logic_Repetition.md)
+- [🔌 Bit Vexels & Logical Operators](./Bit_vexel.md)
 - [Boole Functions](./Boole_Function.md)
 - [The Boole-Möbius Transform — Sir Galahad's Deduction](./Boole_mobius_transform.md)
