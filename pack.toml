@@ -1,11 +1,11 @@
-[custom.all.idris2-Logic-Wiki]
+[custom.all.idris2-Boole-Wiki]
 type = "local"
 path = "."
-ipkg = "idris2-Logic-Wiki.ipkg"
+ipkg = "idris2-Boole-Wiki.ipkg"
 
 [custom.all.idris2-Logic]
 type = "local"
-path = "../Idris2-Logic"
+path = "../Idris2-Boole"
 ipkg = "idris2-Logic.ipkg"
 
 [custom.all.idris2-Multiset]

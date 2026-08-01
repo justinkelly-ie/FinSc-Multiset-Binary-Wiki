@@ -2,13 +2,10 @@ module Main
 
 import QuickCheck
 import Logic_Explainer
-import Logic_Lifted
 import Logic_Repetition
-import Boole_Last_Challenge
 import Bit_vexel
 import Boole_Function
 import Boole_mobius_transform
-import IndivisibleHistory
 import Engine_Verification
 
 import System.File
@@ -44,33 +41,25 @@ markdownTable results =
 partial
 main : IO ()
 main = do
-  putStrLn "Starting Idris2-Logic-Wiki QuickCheck Suite...\n"
+  putStrLn "Starting Idris2-Boole-Wiki QuickCheck Suite...\n"
   
-  putStrLn "Running Test 1: George Boole's Last Challenge Bounds"
-  let resBooleChallenge = quickCheck prop_booleChallengeBounds
-  
-  putStrLn "Running Test 2: Boole Function Evaluation Correctness"
+  putStrLn "Running Test 1: Boole Function Evaluation Correctness"
   let resBF1 = quickCheck Boole_Function.prop_evalCorrect
   
-  putStrLn "Running Test 3: Boole Function & Polynumber Isomorphism"
+  putStrLn "Running Test 2: Boole Function & Polynumber Isomorphism"
   let resBF2 = quickCheck Boole_Function.prop_polynumberIsomorphism
   
-  putStrLn "Running Test 4: Sir Galahad's Deduction (Stone Road)"
+  putStrLn "Running Test 3: Sir Galahad's Deduction (Stone Road)"
   let resBF3 = quickCheck Boole_mobius_transform.prop_galadhadChoosesStone
   
-  putStrLn "Running Test 5: Boole-Möbius Transform Self-Inverse on Sequence"
+  putStrLn "Running Test 4: Boole-Möbius Transform Self-Inverse on Sequence"
   let resBF4 = quickCheck Boole_mobius_transform.prop_mobiusSelfInverseOnSeq
 
-  putStrLn "Running Test 6: Indivisible History Trajectory"
-  let resIndivisibleHistory = quickCheck prop_indivisibleHistoryLength
-
   let tableStr = markdownTable [
-        ("Boole's Last Challenge", "Verifies the Hailperin polyhedral bounds on George Boole's 1854 challenge evaluate exactly to [7/10, 10/10].", resBooleChallenge),
         ("Boole Function Eval", "Verifies that evaluating a BooleFunction yields the correct truth table value.", resBF1),
         ("Polynumber Isomorphism", "Verifies the algebraic isomorphism between BooleFunction and BoolePolynumber via Möbius transform.", resBF2),
         ("Sir Galahad's Deduction", "Verifies that Sir Galahad's logical premises imply he must choose the stone road.", resBF3),
-        ("Möbius Self-Inverse", "Verifies that the Boole-Möbius transform is self-inverse when mapped over an ongoing sequence.", resBF4),
-        ("Indivisible History Trajectory", "Verifies that the length and division event resets of an IndivisibleHistory are tracked correctly.", resIndivisibleHistory)
+        ("Möbius Self-Inverse", "Verifies that the Boole-Möbius transform is self-inverse when mapped over an ongoing sequence.", resBF4)
       ]
   
   let preamble = unlines [

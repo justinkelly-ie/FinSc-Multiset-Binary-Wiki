@@ -1,4 +1,4 @@
-package idris2-Logic-Wiki
+package idris2-Boole-Wiki
 version = 0.1.0
 executable = boolewiki
 
@@ -7,13 +7,10 @@ depends = base, contrib, idris2-QuickCheck, idris2-Multiset, idris2-Logic, idris
 sourcedir = "Library/Wiki"
 
 modules = Logic_Explainer,
-          Logic_Lifted,
           Logic_Repetition,
-          Boole_Last_Challenge,
           Bit_vexel,
           Boole_Function,
           Boole_mobius_transform,
-          IndivisibleHistory,
           Engine_Verification
 
 main = Main
