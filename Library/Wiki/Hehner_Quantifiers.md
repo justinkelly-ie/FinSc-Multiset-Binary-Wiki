@@ -81,6 +81,6 @@ prop_studentFunctionQuantifiers =
 
 | Classical Quantifier | Hehner Operator | Multiset Function | Meaning in Finite-Science |
 | :--- | :--- | :--- | :--- |
-| $\forall x \cdot P(x)$ | $\land \langle x : S \cdot f(x) \rangle$ | `minWeight` / `forAll` | Minimum weight / payload across domain |
-| $\exists x \cdot P(x)$ | $\lor \langle x : S \cdot f(x) \rangle$ | `maxWeight` / `thereExists` | Maximum weight / payload across domain |
+| $\forall x \cdot P(x)$ | $\land \langle x : S \cdot f(x) \rangle$ | `minWeight` / `forAll` (alias `minFn`) | Minimum weight / payload across domain |
+| $\exists x \cdot P(x)$ | $\lor \langle x : S \cdot f(x) \rangle$ | `maxWeight` / `thereExists` (alias `maxFn`) | Maximum weight / payload across domain |
 | $\sum_x P(x)$ | $+ \langle x : S \cdot f(x) \rangle$ | `totalMass` / `expectation` | Total sum / expected value $\mathbb{E}[f]$ |
