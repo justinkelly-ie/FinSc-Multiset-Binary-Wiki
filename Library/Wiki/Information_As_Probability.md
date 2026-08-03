@@ -14,6 +14,7 @@ In traditional textbooks, probability is introduced as an abstract measure over 
 module Information_As_Probability
 
 import QuickCheck
+import Math.Multiset
 import Math.BoxInt
 import Math.SignedFraction
 import Logic.FunctionalProbability

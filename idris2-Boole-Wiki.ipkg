@@ -14,6 +14,11 @@ modules = Logic_Explainer,
           Engine_Verification,
           Information_As_Probability,
           Cross_Entropy_And_Compression,
-          Hehner_Normalization
+          Hehner_Normalization,
+          Functional_Probability,
+          Boole_Last_Challenge,
+          Lifted_Polynumbers,
+          Logic_Lifted,
+          Probability_Bounds
 
 main = Main

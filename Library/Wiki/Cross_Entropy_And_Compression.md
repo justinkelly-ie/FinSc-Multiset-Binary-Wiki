@@ -14,6 +14,7 @@ Imagine Nature generates messages according to a true probability distribution $
 module Cross_Entropy_And_Compression
 
 import QuickCheck
+import Math.Multiset
 import Math.BoxInt
 import Math.SignedFraction
 import Logic.FunctionalProbability

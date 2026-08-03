@@ -16,7 +16,10 @@ $$\updownarrow E = \frac{E}{\sum E}$$
 module Hehner_Normalization
 
 import QuickCheck
+import Math.Multiset
+import Math.Singleton.Sing
 import Math.BoxInt
+import Math.Vexel.Vexel
 import Math.SignedFraction
 import Logic.FunctionalProbability
 import Logic.InformationTheory

@@ -4,7 +4,7 @@
 
 [![Idris2](https://img.shields.io/badge/Idris2-Boole-blue.svg)](https://github.com/idris-lang/Idris2)
 [![Wiki](https://img.shields.io/badge/Wiki-Living_Docs-red.svg)]()
-[![Tests](https://img.shields.io/badge/QuickCheck-10_passing-green.svg)]()
+[![Tests](https://img.shields.io/badge/QuickCheck-14_passing-green.svg)]()
 
 ---
 
@@ -59,11 +59,16 @@ Because probability fractions ($w / \sum w$) operate via exact integer cross-mul
 *   **[Bit Vexels & Operators](Library/Wiki/Bit_vexel.md)** — Guide to constructing digital logic circuits using multiset-based logic algebra.
 *   **[Logic Repetition](Library/Wiki/Logic_Repetition.md)** — Modulo-2 digital logic wires using `Bit` multiset coefficients.
 *   **[Logic Explainer](Library/Wiki/Logic_Explainer.md)** — Core type definitions of `Sing`, `Sing1`, and dependently typed `DepVexel` registers.
+*   **[Lifted Polynumbers](Library/Wiki/Lifted_Polynumbers.md)** — Mapping Boolean logic fields into integer polynomial plane.
+*   **[Singleton Lifted Polynumbers](Library/Wiki/Logic_Lifted.md)** — Positional arithmetic carriage with division-by-zero protection.
 
 ### Information Theory & Functional Probability (Row 3 & 4)
+*   **[📊 Functional Probability](Library/Wiki/Functional_Probability.md)** — Calculational Hehner conditional probability, stateProbability, and divisionless comparisons.
 *   **[💡 Information as Probability ($p = 2^{-I}$)](Library/Wiki/Information_As_Probability.md)** — Student guide to Hehner's pedagogical inversion, surprisal bits, and exact integer logarithms.
-*   **[🗜️ Cross-Entropy & Hutter Compression](Library/Wiki/Cross_Entropy_And_Compression.md)** — Explains Cross-Entropy $H(P, Q)$, zero KL loss ($D_{\text{KL}} = 0$), and Hutter's Compression-as-Intelligence metric.
 *   **[↕️ Hehner's Normalization Operator ($\updownarrow E$)](Library/Wiki/Hehner_Normalization.md)** — Student guide to $\updownarrow E = E / \sum E$ distribution summation and multiset normalization.
+*   **[🗜️ Cross-Entropy & Hutter Compression](Library/Wiki/Cross_Entropy_And_Compression.md)** — Explains Cross-Entropy $H(P, Q)$, zero KL loss ($D_{\text{KL}} = 0$), and Hutter's Compression-as-Intelligence metric.
+*   **[🎓 George Boole's Last Challenge Problem](Library/Wiki/Boole_Last_Challenge.md)** — Computing exact polyhedral bounds $[7/10, 10/10]$ on Boole's 1854 3-event union problem.
+*   **[🛡️ Probability Bounds (Hailperin)](Library/Wiki/Probability_Bounds.md)** — Bounded min/max interval representation over incomplete probability fields.
 
 ### Algebraic Transformations & Sequences
 *   **[Boole-Möbius Transform (Sir Galahad)](Library/Wiki/Boole_mobius_transform.md)** — Resolving Sir Galahad's three-premises liar puzzle via component-wise truth tables and verification of the self-inverse property.
@@ -81,7 +86,7 @@ To build the executable and run all property tests in real time:
 toolbox run -c fedora-toolbox-44 pack run idris2-Boole-Wiki.ipkg
 ```
 
-This will run all 10 QuickCheck property-testing suites and automatically write the results to:
+This will run all 14 QuickCheck property-testing suites and automatically write the results to:
 *   [Verification Matrix](Library/Wiki/Verification_Matrix.md)
 
 ---

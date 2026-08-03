@@ -10,6 +10,10 @@ import Engine_Verification
 import Information_As_Probability
 import Cross_Entropy_And_Compression
 import Hehner_Normalization
+import Functional_Probability
+import Boole_Last_Challenge
+import Logic_Lifted
+import Logic.FunctionalProbability
 
 import System.File
 import Data.String
@@ -76,6 +80,18 @@ main = do
   putStrLn "Running Test 10: Normalized Distribution Bit Surprisal"
   let resHN2 = quickCheck Hehner_Normalization.prop_studentNormalizedSurprisal
 
+  putStrLn "Running Test 11: Hehner Conditional Prob (At Least One Girl)"
+  let resFP1 = quickCheck Functional_Probability.prop_atLeastOneGirlProb
+
+  putStrLn "Running Test 12: Bertrand's Box Paradox (Other Side Red)"
+  let resFP2 = quickCheck Functional_Probability.prop_bertrandBoxProb
+
+  putStrLn "Running Test 13: Boole's 1854 Challenge Problem Bounds [7/10, 1]"
+  let resBC1 = quickCheck Boole_Last_Challenge.prop_booleChallengeBounds
+
+  putStrLn "Running Test 14: Singleton Wire Lift to BoxInt"
+  let resLL1 = quickCheck Logic_Lifted.prop_studentLiftSingleton
+
   let tableStr = markdownTable [
         ("Boole Function Eval", "Verifies that evaluating a BooleFunction yields the correct truth table value.", resBF1),
         ("Polynumber Isomorphism", "Verifies the algebraic isomorphism between BooleFunction and BoolePolynumber via Möbius transform.", resBF2),
@@ -86,7 +102,11 @@ main = do
         ("KL Zero Loss (D_KL = 0)", "Verifies zero KL divergence loss for exact discrete multiset cross-multiplication.", resCE1),
         ("Hutter Compression (4:1)", "Verifies 4:1 description length compression of multiset representations over 64-bit float vectors.", resCE2),
         ("Hehner Normalization ↕E", "Verifies that Hehner's ↕E operator scales raw multiset weights into exact probability fractions.", resHN1),
-        ("Normalized Surprisal", "Verifies exact bit surprisal calculation over normalized multiset distributions.", resHN2)
+        ("Normalized Surprisal", "Verifies exact bit surprisal calculation over normalized multiset distributions.", resHN2),
+        ("Hehner Conditional Prob", "Verifies Hehner's conditional probability calculation over exact multiset fractions.", resFP1),
+        ("Bertrand's Box Paradox", "Verifies exact rational resolution of Bertrand's Box paradox without float drift.", resFP2),
+        ("Boole's Challenge Bounds", "Verifies exact polyhedral bounds [7/10, 1] on George Boole's 1854 3-event union problem.", resBC1),
+        ("Singleton Wire Lift", "Verifies type-level lifting of binary singleton wires into integer-weighted multisets.", resLL1)
       ]
   
   let preamble = unlines [
