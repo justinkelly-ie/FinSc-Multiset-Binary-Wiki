@@ -13,7 +13,7 @@ Given an unnormalized non-negative expression $E$ whose total sum $\sum E$ is be
 $$\updownarrow E = \frac{E}{\sum E}$$
 
 ```idris
-module Hehner_Normalization
+module Normalization
 
 import QuickCheck
 import Math.Multiset

@@ -11,7 +11,7 @@
 ## 1. 📐 Why Replace $\forall$ and $\exists$ with Minimum and Maximum?
 
 ```idris
-module Hehner_Quantifiers
+module Quantifiers
 
 import QuickCheck
 import Math.Multiset

@@ -9,12 +9,12 @@ import Boole_mobius_transform
 import Engine_Verification
 import Information_As_Probability
 import Cross_Entropy_And_Compression
-import Hehner_Normalization
+import Normalization
 import Functional_Probability
 import Boole_Last_Challenge
 import Logic_Lifted
 import Logic.FunctionalProbability
-import Hehner_Quantifiers
+import Quantifiers
 
 import System.File
 import Data.String
@@ -76,10 +76,10 @@ main = do
   let resCE2 = quickCheck Cross_Entropy_And_Compression.prop_studentCompressionRatio
 
   putStrLn "Running Test 9: Hehner Normalization Operator (↕E = E / ∑E)"
-  let resHN1 = quickCheck Hehner_Normalization.prop_studentNormalizeOperator
+  let resHN1 = quickCheck Normalization.prop_studentNormalizeOperator
 
   putStrLn "Running Test 10: Normalized Distribution Bit Surprisal"
-  let resHN2 = quickCheck Hehner_Normalization.prop_studentNormalizedSurprisal
+  let resHN2 = quickCheck Normalization.prop_studentNormalizedSurprisal
 
   putStrLn "Running Test 11: Hehner Conditional Prob (At Least One Girl)"
   let resFP1 = quickCheck Functional_Probability.prop_atLeastOneGirlProb
@@ -94,10 +94,10 @@ main = do
   let resLL1 = quickCheck Logic_Lifted.prop_studentLiftSingleton
 
   putStrLn "Running Test 15: Hehner Quantifiers (minWeight ∀ and maxWeight ∃)"
-  let resHQ1 = quickCheck Hehner_Quantifiers.prop_studentMinMaxQuantifiers
+  let resHQ1 = quickCheck Quantifiers.prop_studentMinMaxQuantifiers
 
   putStrLn "Running Test 16: Function Calculational Quantifiers (forAll and thereExists)"
-  let resHQ2 = quickCheck Hehner_Quantifiers.prop_studentFunctionQuantifiers
+  let resHQ2 = quickCheck Quantifiers.prop_studentFunctionQuantifiers
 
   let tableStr = markdownTable [
         ("Boole Function Eval", "Verifies that evaluating a BooleFunction yields the correct truth table value.", resBF1),
