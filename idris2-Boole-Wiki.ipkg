@@ -11,6 +11,9 @@ modules = Logic_Explainer,
           Bit_vexel,
           Boole_Function,
           Boole_mobius_transform,
-          Engine_Verification
+          Engine_Verification,
+          Information_As_Probability,
+          Cross_Entropy_And_Compression,
+          Hehner_Normalization
 
 main = Main

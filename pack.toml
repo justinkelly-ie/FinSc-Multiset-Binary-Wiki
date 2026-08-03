@@ -27,3 +27,13 @@ ipkg = "idris2-Universe.ipkg"
 type = "local"
 path = "../idris2-Chromogeometry"
 ipkg = "idris2-chromogeometry.ipkg"
+
+[custom.all.idris2-Substrate]
+type = "local"
+path = "../idris2-Substrate"
+ipkg = "idris2-Substrate.ipkg"
+
+[custom.all.idris2-Electromagnetism]
+type = "local"
+path = "../idris2-Electromagnetism"
+ipkg = "idris2-Electromagnetism.ipkg"
