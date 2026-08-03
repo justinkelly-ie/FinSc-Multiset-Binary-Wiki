@@ -4,7 +4,7 @@
 
 [![Idris2](https://img.shields.io/badge/Idris2-Boole-blue.svg)](https://github.com/idris-lang/Idris2)
 [![Wiki](https://img.shields.io/badge/Wiki-Living_Docs-red.svg)]()
-[![Tests](https://img.shields.io/badge/QuickCheck-14_passing-green.svg)]()
+[![Tests](https://img.shields.io/badge/QuickCheck-16_passing-green.svg)]()
 
 ---
 
@@ -66,6 +66,7 @@ Because probability fractions ($w / \sum w$) operate via exact integer cross-mul
 *   **[📊 Functional Probability](Library/Wiki/Functional_Probability.md)** — Calculational Hehner conditional probability, stateProbability, and divisionless comparisons.
 *   **[💡 Information as Probability ($p = 2^{-I}$)](Library/Wiki/Information_As_Probability.md)** — Student guide to Hehner's pedagogical inversion, surprisal bits, and exact integer logarithms.
 *   **[↕️ Hehner's Normalization Operator ($\updownarrow E$)](Library/Wiki/Hehner_Normalization.md)** — Student guide to $\updownarrow E = E / \sum E$ distribution summation and multiset normalization.
+*   **[∧/∨ Hehner's Calculational Quantifiers ($\forall, \exists$)](Library/Wiki/Hehner_Quantifiers.md)** — Replacing $\forall$ with $\land$ (`minWeight`) and $\exists$ with $\lor$ (`maxWeight`).
 *   **[🗜️ Cross-Entropy & Hutter Compression](Library/Wiki/Cross_Entropy_And_Compression.md)** — Explains Cross-Entropy $H(P, Q)$, zero KL loss ($D_{\text{KL}} = 0$), and Hutter's Compression-as-Intelligence metric.
 *   **[🎓 George Boole's Last Challenge Problem](Library/Wiki/Boole_Last_Challenge.md)** — Computing exact polyhedral bounds $[7/10, 10/10]$ on Boole's 1854 3-event union problem.
 *   **[🛡️ Probability Bounds (Hailperin)](Library/Wiki/Probability_Bounds.md)** — Bounded min/max interval representation over incomplete probability fields.
@@ -86,7 +87,7 @@ To build the executable and run all property tests in real time:
 toolbox run -c fedora-toolbox-44 pack run idris2-Boole-Wiki.ipkg
 ```
 
-This will run all 14 QuickCheck property-testing suites and automatically write the results to:
+This will run all 16 QuickCheck property-testing suites and automatically write the results to:
 *   [Verification Matrix](Library/Wiki/Verification_Matrix.md)
 
 ---

@@ -14,6 +14,7 @@ import Functional_Probability
 import Boole_Last_Challenge
 import Logic_Lifted
 import Logic.FunctionalProbability
+import Hehner_Quantifiers
 
 import System.File
 import Data.String
@@ -92,6 +93,12 @@ main = do
   putStrLn "Running Test 14: Singleton Wire Lift to BoxInt"
   let resLL1 = quickCheck Logic_Lifted.prop_studentLiftSingleton
 
+  putStrLn "Running Test 15: Hehner Quantifiers (minWeight ∀ and maxWeight ∃)"
+  let resHQ1 = quickCheck Hehner_Quantifiers.prop_studentMinMaxQuantifiers
+
+  putStrLn "Running Test 16: Function Calculational Quantifiers (forAll and thereExists)"
+  let resHQ2 = quickCheck Hehner_Quantifiers.prop_studentFunctionQuantifiers
+
   let tableStr = markdownTable [
         ("Boole Function Eval", "Verifies that evaluating a BooleFunction yields the correct truth table value.", resBF1),
         ("Polynumber Isomorphism", "Verifies the algebraic isomorphism between BooleFunction and BoolePolynumber via Möbius transform.", resBF2),
@@ -106,7 +113,9 @@ main = do
         ("Hehner Conditional Prob", "Verifies Hehner's conditional probability calculation over exact multiset fractions.", resFP1),
         ("Bertrand's Box Paradox", "Verifies exact rational resolution of Bertrand's Box paradox without float drift.", resFP2),
         ("Boole's Challenge Bounds", "Verifies exact polyhedral bounds [7/10, 1] on George Boole's 1854 3-event union problem.", resBC1),
-        ("Singleton Wire Lift", "Verifies type-level lifting of binary singleton wires into integer-weighted multisets.", resLL1)
+        ("Singleton Wire Lift", "Verifies type-level lifting of binary singleton wires into integer-weighted multisets.", resLL1),
+        ("Hehner Weight Quantifiers", "Verifies minWeight (∀) and maxWeight (∃) over unnormalized multiset spaces.", resHQ1),
+        ("Function Quantifiers", "Verifies forAll (min) and thereExists (max) over payload evaluation functions.", resHQ2)
       ]
   
   let preamble = unlines [

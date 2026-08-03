@@ -19,6 +19,7 @@ modules = Logic_Explainer,
           Boole_Last_Challenge,
           Lifted_Polynumbers,
           Logic_Lifted,
-          Probability_Bounds
+          Probability_Bounds,
+          Hehner_Quantifiers
 
 main = Main
