@@ -18,28 +18,34 @@ Like the parent science wiki, this library is **executable**. Every chapter is w
 
 ## 🔀 Progression: From Boole Multisets to Probability Multisets
 
-A fundamental insight of the Finite-Science Table is that **Probability is not an independent measure space—it is an algebraic continuation of Boole polynomial multisets**.
+A fundamental insight of the Finite-Science Table is that **Probability is not an abstract measure space—it is the direct normalization of Boolean model counts**.
 
 ```
-    Boole Ring (Row 1/2)                     Probability Multisets (Row 3/4)
-┌───────────────────────────┐               ┌─────────────────────────────────┐
-│ Mod-2 / BoxInt Weights    │               │ Hehner Normalization ↕E = E/∑E  │
-│ [Vexel BoxInt state]      │  ───────►     │ Exact Fraction: w / ∑w          │
-│ Denominator = 1           │               │ Surprisal Bits: I = -log2(p)    │
-└───────────────────────────┘               └─────────────────────────────────┘
+  Step 1a: Boolean Logic ──► Step 1b: Model Counting ──► Step 2: Normalization ──► Step 3: Information
+ ┌──────────────────────┐   ┌──────────────────────┐   ┌─────────────────────┐    ┌─────────────────────┐
+ │ Binary Wires         │   │ State Frequencies    │   │ Rational Prob       │    │ Surprisal Bits      │
+ │ Bit ∈ {0, 1}         │   │ Vexel BoxInt state   │   │ ↕E = w_i / ∑w       │    │ I(x) = -log2(p)     │
+ │ Denominator = 1      │   │ Total Mass = ∑w      │   │ MSetFraction        │    │ Hutter Compression  │
+ └──────────────────────┘   └──────────────────────┘   └─────────────────────┘    └─────────────────────┘
 ```
 
-### Step 1: Boole Polynomial Multisets (Row 1 & 2)
-Logical wires start as binary values (`Bit` $\in \{0, 1\}$) under mod-2 addition (XOR) and multiplication (AND). In Row 2, binary states lift into integer-weighted multisets (`Vexel BoxInt state`) over 1-component Singleton coordinates. At this stage, the scale denominator is fixed to the unit constant ($1$ / `TrivialBase`).
+### Step 1a: Deterministic Boolean Logic (Row 1)
+Logical propositions begin as deterministic binary wires (`Bit` $\in \{0, 1\}$) under mod-2 addition (XOR) and multiplication (AND). A truth table assigns exact $0$ or $1$ evaluations to individual variable assignments.
 
-### Step 2: Hehner Normalization Operator ($\updownarrow E = E / \sum E$)
-In Row 3, the fixed unit denominator **generalizes to the total mass of the unnormalized distribution** ($\sum w$). Applying Eric Hehner's normalization operator:
+### Step 1b: Combinatorial Model Counting & State Accumulation (Row 2)
+Before jumping to probabilities, we count how many micro-states in a truth table or observation window satisfy a given proposition. 
+* Binary states aggregate into **Integer Multiset Counts** (`Vexel BoxInt state`).
+* Each element weight $w_i \in \mathbb{Z}_{\ge 0}$ represents the **raw frequency count** of state $x_i$ occurring.
+* *Example*: In an 8-outcome sample space, 3 outcomes yield `Heads` ($w_{\text{heads}} = 3$) and 5 yield `Tails` ($w_{\text{tails}} = 5$). Total universe mass $\sum w = 8$.
+
+### Step 2: Hehner Normalization Operator ($\updownarrow E = E / \sum E$) (Row 3)
+Probability is introduced simply by normalizing the raw model count $w_i$ against the total universe mass $\sum w$. Applying Eric Hehner's normalization operator:
 
 $$\updownarrow E = \frac{E}{\sum E}$$
 
-transforms raw multiset weights ($w_i \in \mathbb{Z}$) into exact rational probabilities ($w_i / \sum w$) stored in `MSetFraction`, eliminating floating-point drift and rounding errors.
+scales unnormalized multiset weights into exact rational probability fractions ($w_i / \sum w$) stored in `MSetFraction`, eliminating floating-point rounding errors and precision loss.
 
-### Step 3: Hehner Information Paradigm ($p = 2^{-I}$)
+### Step 3: Hehner Information Paradigm ($p = 2^{-I}$) (Row 4)
 Instead of defining information in terms of probability ($I = -\log_2 p$), Hehner reverses the paradigm to define probability in terms of memory bits ($p = 2^{-I}$). High-probability multiset states require short bit lengths; rare states require long bit lengths.
 
 ### Step 4: Zero KL-Divergence Loss ($D_{\text{KL}} = 0$) & Hutter Compression
