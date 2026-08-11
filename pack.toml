@@ -3,6 +3,21 @@ type = "local"
 path = "."
 ipkg = "idris2-Boole-Wiki.ipkg"
 
+[custom.all.Idris2-GeoLinAlg]
+type = "local"
+path = "../Idris2-GeoLinAlg"
+ipkg = "Idris2-GeoLinAlg.ipkg"
+
+[custom.all.idris2-Universe-Expanded]
+type = "local"
+path = "../idris2-Universe-Expanded"
+ipkg = "idris2-Universe-Expanded.ipkg"
+
+[custom.all.idris2-Multivariable]
+type = "local"
+path = "../Idris2-Multivariable"
+ipkg = "idris2-Multivariable.ipkg"
+
 [custom.all.idris2-Boole]
 type = "local"
 path = "../Idris2-Boole"
