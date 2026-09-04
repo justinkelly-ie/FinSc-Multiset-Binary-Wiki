@@ -1,8 +1,8 @@
-package idris2-Boole-Wiki
+package Idris2-Multiset-Binary-Wiki
 version = 0.1.0
 executable = boolewiki
 
-depends = base, idris2-QuickCheck, idris2-Multiset, idris2-Boole, idris2-Universe, idris2-chromogeometry
+depends = base, idris2-QuickCheck, idris2-Multiset, Idris2-Multiset-Binary, idris2-Universe, idris2-chromogeometry
 
 sourcedir = "Library/Wiki"
 
