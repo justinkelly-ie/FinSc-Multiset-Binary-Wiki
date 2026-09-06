@@ -1,25 +1,13 @@
 package Idris2-Multiset-Binary-Wiki
 version = 0.1.0
-executable = boolewiki
+executable = multiset2-binary-verify
 
-depends = base, idris2-QuickCheck, idris2-Multiset, Idris2-Multiset-Binary, idris2-Universe, idris2-chromogeometry
+depends = base, idris2-QuickCheck, Idris2-Multiset-Core, Idris2-Multiset-Binary
 
-sourcedir = "Library/Wiki"
+sourcedir = "Library"
 
-modules = Logic_Explainer,
-          Logic_Repetition,
-          Bit_vexel,
-          Boole_Function,
-          Boole_mobius_transform,
-          Engine_Verification,
-          Information_As_Probability,
-          Cross_Entropy_And_Compression,
-          Normalization,
-          Functional_Probability,
-          Boole_Last_Challenge,
-          Lifted_Polynumbers,
-          Logic_Lifted,
-          Probability_Bounds,
-          Quantifiers
+modules = Wiki.Generators
+        , Wiki.BinaryScaleTransformSpec
+        , Wiki.Main
 
-main = Main
+main = Wiki.Main

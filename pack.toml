@@ -2,3 +2,18 @@
 name = "Idris2-Multiset-Binary-Wiki"
 version = "0.1.0"
 ipkg = "Idris2-Multiset-Binary-Wiki.ipkg"
+
+[custom.all.idris2-QuickCheck]
+type = "local"
+path = "../idris2-QuickCheck"
+ipkg = "idris2-QuickCheck.ipkg"
+
+[custom.all.Idris2-Multiset-Core]
+type = "local"
+path = "../Idris2-Multiset-Core"
+ipkg = "Idris2-Multiset-Core.ipkg"
+
+[custom.all.Idris2-Multiset-Binary]
+type = "local"
+path = "../Idris2-Multiset-Binary"
+ipkg = "Idris2-Multiset-Binary.ipkg"
