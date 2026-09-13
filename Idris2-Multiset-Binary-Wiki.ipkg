@@ -1,6 +1,6 @@
 package Idris2-Multiset-Binary-Wiki
 version = 0.1.0
-executable = multiset2-binary-verify
+executable = multiset-binary-wiki
 
 depends = base, idris2-QuickCheck, Idris2-Multiset-Core, Idris2-Multiset-Binary
 
