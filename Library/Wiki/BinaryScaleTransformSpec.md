@@ -35,8 +35,8 @@ prop_bitScaleTransformBounded b =
   in z <= 1
 
 public export
-prop_bitInvertScaleGalois : Bit -> Bool
-prop_bitInvertScaleGalois b =
+prop_bitInvertScaleAdjunction : Bit -> Bool
+prop_bitInvertScaleAdjunction b =
   let z : Nat = scaleTransform b
       b' : Bit = invertScaleTransform z
   in b' == b
@@ -51,7 +51,7 @@ public export
 auditBinaryScaleTransformSpecProof : IO Bool
 auditBinaryScaleTransformSpecProof = do
   let r1 = qc prop_bitScaleTransformBounded
-  let r2 = qc prop_bitInvertScaleGalois
+  let r2 = qc prop_bitInvertScaleAdjunction
   let r3 = qc prop_bitObservablePreserved
   pure (r1.pass == Just True && r2.pass == Just True && r3.pass == Just True)
 ```

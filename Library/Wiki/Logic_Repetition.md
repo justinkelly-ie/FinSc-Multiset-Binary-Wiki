@@ -13,7 +13,7 @@ This variant utilizes restricted singleton types `Sing` and `Sing1` to guarantee
 ### Type Definition
 
 ```idris
-module Logic_Repetition
+module Wiki.Logic_Repetition
 
 import Math.Singleton.Sing
 import Math.Vexel.Vexel

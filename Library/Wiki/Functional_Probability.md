@@ -5,7 +5,7 @@
 The normalization of unnormalized physical mass distributions into exact rational probability vectors. Replaces classical axiomatic probability theory with calculational minimums and maximums over closed finite spaces, using cross-multiplication instead of division to prevent precision loss.
 
 ```idris
-module Functional_Probability
+module Wiki.Functional_Probability
 
 import QuickCheck
 import Math.Multiset

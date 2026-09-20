@@ -1,13 +1,32 @@
 package Idris2-Multiset-Binary-Wiki
 version = 0.1.0
-executable = multiset-binary-wiki
 
-depends = base, idris2-QuickCheck, Idris2-Multiset-Core, Idris2-Multiset-Binary
-
+depends = Idris2-Multiset-Binary, Idris2-Multiset-Core, Idris2-Multiset-Transform, base, idris2-QuickCheck, linear
 sourcedir = "Library"
 
-modules = Wiki.Generators
-        , Wiki.BinaryScaleTransformSpec
-        , Wiki.Main
+modules = Wiki.BinaryScaleTransformSpec,
+          Wiki.Bit,
+          Wiki.Bit2,
+          Wiki.Bit_vexel,
+          Wiki.Boole_Function,
+          Wiki.Boole_Last_Challenge,
+          Wiki.Boole_mobius_transform,
+          Wiki.Cross_Entropy_And_Compression,
+          Wiki.Digital_Repetition,
+          Wiki.Engine_Verification,
+          Wiki.Functional_Probability,
+          Wiki.Generators,
+          Wiki.Information_As_Probability,
+          Wiki.Lifted_Polynumbers,
+          Wiki.Logic_Explainer,
+          Wiki.Logic_Lifted,
+          Wiki.Logic_Repetition,
+          Wiki.Main,
+          Wiki.Normalization,
+          Wiki.On_Sequence,
+          Wiki.Probability_Bounds,
+          Wiki.Quantifiers,
+          Wiki.Verification_Matrix
 
 main = Wiki.Main
+executable = multiset-binary-wiki

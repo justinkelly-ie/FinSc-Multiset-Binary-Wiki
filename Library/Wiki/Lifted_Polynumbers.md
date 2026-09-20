@@ -30,7 +30,7 @@ For Row 2 specifically, the fraction is structured as:
 - **Compile-Time Constraint:** A dependent type proof (`isTrivial`) verifies that the denominator is exactly `theUnitConstantZ`, preventing scale deviation.
 
 ```idris
-module Lifted_Polynumbers
+module Wiki.Lifted_Polynumbers
 
 import Math.Multiset
 import Math.BoxInt

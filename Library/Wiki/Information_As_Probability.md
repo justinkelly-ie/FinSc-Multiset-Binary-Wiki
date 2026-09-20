@@ -11,7 +11,7 @@
 In traditional textbooks, probability is introduced as an abstract measure over infinite continuous sets. But when you download a compressed file, your computer doesn't deal with infinite limits—it deals with **bits of memory**.
 
 ```idris
-module Information_As_Probability
+module Wiki.Information_As_Probability
 
 import QuickCheck
 import Math.Multiset

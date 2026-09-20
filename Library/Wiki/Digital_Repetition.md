@@ -4,7 +4,7 @@
 In Finite-Science, boolean logic is not a primitive truth value; it is a structural multiset representing the lowest order of physical repetition. By utilizing Idris 2's dependent types, we ensure that digital operations are strictly bounded and conserved.
 
 ```idris
-module Formal.Boole
+module Wiki.Digital_Repetition
 
 import Math.Multiset
 import Math.SignedFraction
@@ -17,9 +17,9 @@ data Bit : Type where
 -- Dependent proof that boolean algebra forms a valid modulo-2 Ring over Multisets
 -- Using the SignedFraction (Numerator over Unit Denominator)
 DigitalFraction : Type
-DigitalFraction = MSetFraction Bit Unit
+DigitalFraction = MSetFraction
 
 total
-modulo2Invariance : (x : DigitalFraction) -> (x + x = 0)
+modulo2Invariance : (x : DigitalFraction) -> (addMSF x x = zeroMSF)
 -- Proof that identical causal chains annihilate in mod-2 (destructive interference)
 ```

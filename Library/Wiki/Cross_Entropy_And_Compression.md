@@ -11,7 +11,7 @@
 Imagine Nature generates messages according to a true probability distribution $P(x)$. To store these messages efficiently, Nature assigns an optimal bit-length $I_P(x) = -\log_2 P(x)$ to each outcome.
 
 ```idris
-module Cross_Entropy_And_Compression
+module Wiki.Cross_Entropy_And_Compression
 
 import QuickCheck
 import Math.Multiset

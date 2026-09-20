@@ -14,7 +14,7 @@ Here is how to build and evaluate a complete logic circuit from scratch.
 Every logic wire or register pin is represented as a coordinate type. For example, let's define a simple 3-pin system:
 
 ```idris
-module Bit_vexel
+module Wiki.Bit_vexel
 
 import Math.Singleton.Sing
 import Math.Vexel.Vexel

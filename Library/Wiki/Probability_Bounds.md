@@ -4,7 +4,7 @@
 Hailperin probability bounds replace exact probabilities with bounded min/max intervals, structurally encoded as pairs of Multisets.
 
 ```idris
-module Probability_Bounds
+module Wiki.Probability_Bounds
 
 import Data.So
 

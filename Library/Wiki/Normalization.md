@@ -13,7 +13,7 @@ Given an unnormalized non-negative expression $E$ whose total sum $\sum E$ is be
 $$\updownarrow E = \frac{E}{\sum E}$$
 
 ```idris
-module Normalization
+module Wiki.Normalization
 
 import QuickCheck
 import Math.Multiset
@@ -50,7 +50,7 @@ public export
 prop_studentNormalizeOperator : Property
 prop_studentNormalizeOperator =
   let -- Unnormalized space with weights [Heads -> 3, Tails -> 5], total sum = 8
-      vexelSpace = mkMSetFractionVexel (AddM (MkSing Boy) 3 (AddM (MkSing Girl) 5 ZeroM)) 8
+      vexelSpace = mkMSetFractionVexel (AddM Boy 3 (AddM Girl 5 ZeroM)) 8
       -- Normalizing extracts P(Boy) = 3/8 and P(Girl) = 5/8
       pBoy = stateProbability vexelSpace Boy
       pGirl = stateProbability vexelSpace Girl

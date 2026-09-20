@@ -6,7 +6,7 @@ demonstrates how the pointwise truth-table method resolves propositional
 deductions mechanically, without clever identity manipulation.
 
 ```idris
-module Boole_mobius_transform
+module Wiki.Boole_mobius_transform
 
 import QuickCheck
 import Data.List
@@ -145,11 +145,7 @@ In the Algebra of Boole, negation of a truth value `v ∈ B₂` is written `1 + 
 
 $$\text{result} = (1 + v_G) \cdot (1 + v_M) \cdot v_S = 1$$
 
-```idris
-||| Lift a Bool result into B₂ for use in Boole algebra expressions.
-boolToBit : Bool -> Bit
-boolToBit True  = One
-boolToBit False = Zero
+
 
 ||| Verify the Galahad deduction using only the Algebra of Boole.
 ||| ¬validG ∧ ¬validM ∧ validS = (1 + vG) * (1 + vM) * vS = 1.

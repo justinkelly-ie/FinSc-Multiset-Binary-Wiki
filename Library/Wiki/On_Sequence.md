@@ -20,7 +20,7 @@ Instead of treating an infinite sequence as a static, completed set of infinite 
 
 In [OnMSet.idr](file:///var/home/justin/Projects/idris2-Multiset/src/Math/OnSeq/OnMSet.idr), we represent these concepts as follows:
 
-```idris
+```text
 ||| An on-sequence (ongoing sequence) starting at a specific index.
 ||| Defined via a generator function mapping the term index to the value.
 public export
@@ -43,7 +43,7 @@ record Clip a where
 
 By parameterizing `OnSeq` with the signed [Multiset](file:///var/home/justin/Projects/idris2-Multiset/src/Math/Multiset.idr) type, we obtain the **OnMSet** type:
 
-```idris
+```text
 public export
 0 OnMSet : (c : Type) -> (a : Type) -> Type
 OnMSet c a = OnSeq (Multiset c a)
@@ -51,7 +51,7 @@ OnMSet c a = OnSeq (Multiset c a)
 
 Pointwise arithmetic operations are mapped across these ongoing sequences. For example, adding two `OnMSet` structures combines them at each step, aligning their starting indices to $\max(s_1, s_2)$:
 
-```idris
+```text
 public export
 addOnMSet : OnMSet c a -> OnMSet c a -> OnMSet c a
 addOnMSet = zipWith addMultiset
@@ -62,7 +62,7 @@ Suppose we have two ongoing sequences of multisets where:
 * $S_1(n)$ adds $n$ copies of coordinate `'A'` at step $n$, starting at index $1$.
 * $S_2(n)$ adds $3$ copies of coordinate `'B'` at step $n$, starting at index $0$.
 
-```idris
+```text
 let s1 = MkOnSeq 1 (\n => AddM 'A' (cast n) ZeroM)
 let s2 = MkOnSeq 0 (\n => AddM 'B' 3 ZeroM)
 
@@ -97,7 +97,7 @@ A partial order relation (poset) on a set of nodes is represented as a **Zeta Ma
 
 For an ongoing sequence of growing posets, we define this transform **sequentially** (an "on-Maxel" transform). Because the Zeta relation represents an upper-triangular matrix with $1$s on the diagonal, we compute its inverse recursively using a total back-substitution algorithm with structural Nat fuel:
 
-```idris
+```text
 ||| Computes the Möbius Maxel from a Zeta Maxel for a finite set of sorted nodes.
 ||| Zeta relation has count 1 for i <= j.
 ||| Returns the Möbius Maxel containing pixels with their correct Mobius counts.
