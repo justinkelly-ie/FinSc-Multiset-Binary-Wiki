@@ -1,4 +1,4 @@
-# 💻 Lifted Polynumbers — [Algebra of Boole](https://github.com/justinkelly-ie/Idris2-Boole)
+# 💻 Lifted Polynumbers — [Algebra of Boole](https://github.com/justinkelly-ie/FinSc-Boole)
 
 > **Row 2 of the Global Finite Science Table**
 

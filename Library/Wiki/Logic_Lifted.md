@@ -1,4 +1,4 @@
-# 💻 Singleton Lifted Polynumbers — [Algebra of Boole](https://github.com/justinkelly-ie/Idris2-Boole)
+# 💻 Singleton Lifted Polynumbers — [Algebra of Boole](https://github.com/justinkelly-ie/FinSc-Boole)
 
 > **Row 2 Variant: Singleton-Based Lifted Polynumbers**
 >

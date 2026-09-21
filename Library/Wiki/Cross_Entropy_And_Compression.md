@@ -55,7 +55,7 @@ $$D_{\text{KL}}(P \parallel Q) = H(P, Q) - H(P)$$
 * $D_{\text{KL}}(P \parallel Q)$ measures the **wasted memory bits** caused by using model $Q$ instead of true distribution $P$.
 * When your model matches Nature perfectly ($Q = P$), the penalty vanishes: **$D_{\text{KL}}(P \parallel P) = 0$ bits**.
 
-In [Logic.InformationTheory](file:///var/home/justin/Projects/Idris2-Boole/src/Logic/InformationTheory.idr), we verify this zero-loss property directly:
+In [Logic.InformationTheory](file:///var/home/justin/Projects/FinSc-Boole/src/Logic/InformationTheory.idr), we verify this zero-loss property directly:
 
 ```idris
 ||| Student Example 1: Self-model KL divergence is exactly 0 bits (zero information loss)

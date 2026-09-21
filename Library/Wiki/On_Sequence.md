@@ -82,8 +82,8 @@ let clip = getClip sSum 1 3
 ## 🎛️ Unbounded Logic Variables & On-Circuits
 
 For row-specific details of ongoing sequences in Boolean logic (Row 1) and Arithmetic Circuits (Row 2), see:
-*   [Digital Repetition (Row 1)](./Digital_Repetition.md#%EF%B8%8F-ongoing-sequences-unbounded-logic-variables-onbyte) — detailing [OnByte](file:///var/home/justin/Projects/Idris2-Boole/src/Logic/OnCircuit.idr#L47-L49) for growing coordinate vectors.
-*   [Lifted Polynumbers (Row 2)](./Lifted_Polynumbers.md#%EF%B8%8F-ongoing-sequences-expanding-arithmetic-circuits-oncircuit) — detailing [OnCircuit](file:///var/home/justin/Projects/Idris2-Boole/src/Logic/OnCircuit.idr#L12-L14) for expanding logic gates.
+*   [Digital Repetition (Row 1)](./Digital_Repetition.md#%EF%B8%8F-ongoing-sequences-unbounded-logic-variables-onbyte) — detailing [OnByte](file:///var/home/justin/Projects/FinSc-Boole/src/Logic/OnCircuit.idr#L47-L49) for growing coordinate vectors.
+*   [Lifted Polynumbers (Row 2)](./Lifted_Polynumbers.md#%EF%B8%8F-ongoing-sequences-expanding-arithmetic-circuits-oncircuit) — detailing [OnCircuit](file:///var/home/justin/Projects/FinSc-Boole/src/Logic/OnCircuit.idr#L12-L14) for expanding logic gates.
 
 ---
 

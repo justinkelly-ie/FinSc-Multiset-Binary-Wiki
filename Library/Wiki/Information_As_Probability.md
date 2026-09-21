@@ -42,7 +42,7 @@ If an event is guaranteed (e.g. $p = 1$), you are not surprised when it happensâ
 
 If an event is rare (e.g. $p = 1/4$), you are surprisedâ€”it takes **2 bits** of memory to specify which of the 4 possibilities occurred ($I = -\log_2(1/4) = 2$).
 
-In [Logic.InformationTheory](file:///var/home/justin/Projects/Idris2-Boole/src/Logic/InformationTheory.idr), we compute this directly over exact multiset fractions (`MSetFraction`):
+In [Logic.InformationTheory](file:///var/home/justin/Projects/FinSc-Boole/src/Logic/InformationTheory.idr), we compute this directly over exact multiset fractions (`MSetFraction`):
 
 ```idris
 ||| Student Example 1: Surprisal of a 1/4 probability event is 2 bits

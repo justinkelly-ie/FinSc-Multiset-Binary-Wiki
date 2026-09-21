@@ -42,7 +42,7 @@ import Logic.InformationTheory
 
 In the **Finite-Science Algebra of Boole**, unnormalized distributions are stored as `MSetFractionVexel v` (multisets of state weights $w_i \in \mathbb{Z}$).
 
-The $\updownarrow E$ operator is implemented by [normalizeFraction](file:///var/home/justin/Projects/Idris2-Boole/src/Logic/FunctionalProbability.idr#L78-L90) and [stateProbability](file:///var/home/justin/Projects/Idris2-Boole/src/Logic/FunctionalProbability.idr#L66-L75):
+The $\updownarrow E$ operator is implemented by [normalizeFraction](file:///var/home/justin/Projects/FinSc-Boole/src/Logic/FunctionalProbability.idr#L78-L90) and [stateProbability](file:///var/home/justin/Projects/FinSc-Boole/src/Logic/FunctionalProbability.idr#L66-L75):
 
 ```idris
 ||| Student Example 1: Verifying Hehner's normalization operator on unnormalized multiset weights
@@ -61,7 +61,7 @@ prop_studentNormalizeOperator =
 
 ## 3. 💡 Connecting Normalization to Information Surprisal
 
-Once an expression is normalized ($\updownarrow E = E / \sum E$), we compute its exact Information Surprisal ($I = -\log_2 p$) using [Logic.InformationTheory](file:///var/home/justin/Projects/Idris2-Boole/src/Logic/InformationTheory.idr):
+Once an expression is normalized ($\updownarrow E = E / \sum E$), we compute its exact Information Surprisal ($I = -\log_2 p$) using [Logic.InformationTheory](file:///var/home/justin/Projects/FinSc-Boole/src/Logic/InformationTheory.idr):
 
 $$I(x) = -\log_2 \left(\updownarrow E(x)\right) = \log_2\left(\sum E\right) - \log_2(E(x))$$
 
