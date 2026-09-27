@@ -16,13 +16,13 @@ The Singleton type system uses two principal primitives to represent coordinates
 ```idris
 module Wiki.Logic_Explainer
 
-import Math.Singleton.Sing
-import Math.Vexel.Vexel
-import Math.Vexel.DepVexel
-import Math.Singleton.Bit
-import Math.DepMultiset
-import Math.BoxInt
-import Math.Multiset
+import Stage0.Singleton.Sing
+import Stage0.Vexel.Vexel
+import Stage0.Vexel.DepVexel
+import Stage0.Singleton.Bit
+import Stage0.DepMultiset
+import Stage0.BoxInt
+import Stage0.Multiset
 
 -- A dependently typed singleton of length exactly 1
 0 DepSing1 : (a : Type) -> (token : Sing a) -> Type

@@ -2,7 +2,7 @@ module Wiki.Main
 
 import System
 import Wiki.BinaryScaleTransformSpec
-import Math.Singleton.Bit
+import Stage0.Singleton.Bit
 
 %default total
 

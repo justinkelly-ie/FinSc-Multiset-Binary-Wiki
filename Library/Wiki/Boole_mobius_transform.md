@@ -11,13 +11,13 @@ module Wiki.Boole_mobius_transform
 import QuickCheck
 import Data.List
 import Data.Nat
-import Math.Singleton.Sing
-import Math.BoxInt
-import Math.Multiset
-import Math.OnSeq.OnMSet
-import Math.Singleton.Bit
-import Math.Vexel.Byte
-import Logic.MobiusTransform
+import Stage0.Singleton.Sing
+import Stage0.BoxInt
+import Stage0.Multiset
+import Stage0.OnSeq.OnMSet
+import Stage0.Singleton.Bit
+import Stage0.Vexel.Byte
+import Stage1.MobiusTransform
 
 %default total
 ```

@@ -9,7 +9,7 @@
 ```idris
 module Wiki.Bit
 
-import Math.Singleton.Bit
+import Stage0.Singleton.Bit
 ```
 
 ---
@@ -193,7 +193,7 @@ ex_norm = normalize (normalize One)  -- One
 
 Since `Bit` is a type alias for `Sing BoxInt (Multiset BoxInt Void)`,
 the `toSing` and `fromSing` functions from `Math.Singleton.Sing` apply
-directly — add `import Math.Singleton.Sing` if you need them:
+directly — add `import Stage0.Singleton.Sing` if you need them:
 
 - `fromSing Zero` returns `ZeroM` — the empty multiset `[]`
 - `fromSing One` returns `AddM ZeroM 1 ZeroM` — the multiset `[[]]`

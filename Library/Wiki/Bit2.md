@@ -12,7 +12,7 @@
 ```idris
 module Wiki.Bit2
 
-import Math.Singleton.Bit2
+import Stage0.Singleton.Bit2
 ```
 
 ---
@@ -222,7 +222,7 @@ that the `DepMultiset` tracks at the type level:
 ```
 
 This is the analogue of `fromSing` in `Bit`. Add
-`import Math.DepMultiset` if you need `freezeDep` directly.
+`import Stage0.DepMultiset` if you need `freezeDep` directly.
 
 ---
 

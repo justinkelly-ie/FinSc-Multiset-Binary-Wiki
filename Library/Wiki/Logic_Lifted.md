@@ -16,14 +16,14 @@ At this positional layer, the states represent binary registers with integer wei
 module Wiki.Logic_Lifted
 
 import QuickCheck
-import Math.Singleton.Sing
-import Math.Vexel.Vexel
-import Math.BoxInt
-import Math.Vexel.DepVexel
-import Math.Multiset
-import Math.DepMaxel
-import Math.Singleton.SingFraction
-import Logic.FunctionalProbability
+import Stage0.Singleton.Sing
+import Stage0.Vexel.Vexel
+import Stage0.BoxInt
+import Stage0.Vexel.DepVexel
+import Stage0.Multiset
+import Stage0.DepMaxel
+import Stage0.Singleton.SingFraction
+import Stage1.FunctionalProbability
 
 ||| A positional arithmetic state numerator using BoxInt weights.
 0 ArithmeticState : (state : Type) -> Type

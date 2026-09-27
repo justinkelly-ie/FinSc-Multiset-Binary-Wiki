@@ -7,13 +7,13 @@ module Wiki.Boole_Function
 
 import QuickCheck
 import Data.List
-import Math.Singleton.Sing
-import Math.BoxInt
-import Math.Multiset
-import Math.Singleton.Bit
-import Logic.BooleFunction
-import Logic.BoolePolynumber
-import Logic.MobiusTransform
+import Stage0.Singleton.Sing
+import Stage0.BoxInt
+import Stage0.Multiset
+import Stage0.Singleton.Bit
+import Stage1.BooleFunction
+import Stage1.BoolePolynumber
+import Stage1.MobiusTransform
 
 %default total
 ```

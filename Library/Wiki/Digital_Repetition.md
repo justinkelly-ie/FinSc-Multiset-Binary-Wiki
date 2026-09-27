@@ -6,8 +6,8 @@ In Finite-Science, boolean logic is not a primitive truth value; it is a structu
 ```idris
 module Wiki.Digital_Repetition
 
-import Math.Multiset
-import Math.SignedFraction
+import Stage0.Multiset
+import Stage0.SignedFraction
 
 -- A digital bit is structurally bounded to 0 or 1 at the type level
 data Bit : Type where

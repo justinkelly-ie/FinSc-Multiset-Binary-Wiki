@@ -16,11 +16,11 @@ At this probability bounds layer, the states represent interval boundaries $[lo,
 module Wiki.Boole_Last_Challenge
 
 import QuickCheck
-import Math.Multiset
-import Math.Pixel
-import Math.BoxInt
-import Math.SignedFraction
-import Logic.MobiusTransform
+import Stage0.Multiset
+import Stage0.Pixel
+import Stage0.BoxInt
+import Stage0.SignedFraction
+import Stage1.MobiusTransform
 
 -- The 5-coordinate system for Boole's challenge parameters
 data ChallengeCoord = A | B | C | ABC | Unity

@@ -14,11 +14,11 @@ Imagine Nature generates messages according to a true probability distribution $
 module Wiki.Cross_Entropy_And_Compression
 
 import QuickCheck
-import Math.Multiset
-import Math.BoxInt
-import Math.SignedFraction
-import Logic.FunctionalProbability
-import Logic.InformationTheory
+import Stage0.Multiset
+import Stage0.BoxInt
+import Stage0.SignedFraction
+import Stage1.FunctionalProbability
+import Stage1.InformationTheory
 
 %default total
 ```

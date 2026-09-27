@@ -8,14 +8,14 @@ module Wiki.Engine_Verification
 import QuickCheck
 import Data.List
 import Data.So
-import Math.Singleton.Sing
-import Math.BoxInt
-import Math.Multiset
-import Math.Singleton.SingFraction
-import Math.Vexel.Transformation
-import Math.Vexel.Byte
-import Math.Vexel.Vexel
-import Math.Singleton.Bit
+import Stage0.Singleton.Sing
+import Stage0.BoxInt
+import Stage0.Multiset
+import Stage0.Singleton.SingFraction
+import Stage0.Vexel.Transformation
+import Stage0.Vexel.Byte
+import Stage0.Vexel.Vexel
+import Stage0.Singleton.Bit
 
 %default total
 ```

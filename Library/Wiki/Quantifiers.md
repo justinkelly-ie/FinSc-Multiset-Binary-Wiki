@@ -14,11 +14,11 @@
 module Wiki.Quantifiers
 
 import QuickCheck
-import Math.Multiset
-import Math.Singleton.Sing
-import Math.BoxInt
-import Math.Vexel.Vexel
-import Logic.FunctionalProbability
+import Stage0.Multiset
+import Stage0.Singleton.Sing
+import Stage0.BoxInt
+import Stage0.Vexel.Vexel
+import Stage1.FunctionalProbability
 
 %default total
 ```

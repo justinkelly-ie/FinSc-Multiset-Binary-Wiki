@@ -16,20 +16,20 @@ Every logic wire or register pin is represented as a coordinate type. For exampl
 ```idris
 module Wiki.Bit_vexel
 
-import Math.Singleton.Sing
-import Math.Vexel.Vexel
-import Math.Multiset
-import Math.Pixel
-import Math.IntPolynumber
-import Math.Vexel.DepVexel
-import Math.Singleton.Bit
-import Math.BoxInt
-import Math.Vexel.Transformation
-import Math.Singleton.SBFMset
-import Logic.Circuit
-import Logic.BoolePolynumber
-import Math.Vexel.Byte
-import Math.Singleton.SingFraction
+import Stage0.Singleton.Sing
+import Stage0.Vexel.Vexel
+import Stage0.Multiset
+import Stage0.Pixel
+import Stage0.IntPolynumber
+import Stage0.Vexel.DepVexel
+import Stage0.Singleton.Bit
+import Stage0.BoxInt
+import Stage0.Vexel.Transformation
+import Stage0.Singleton.SBFMset
+import Stage1.Circuit
+import Stage1.BoolePolynumber
+import Stage0.Vexel.Byte
+import Stage0.Singleton.SingFraction
 
 vexelToMSetRuntime : Vexel Bit a -> List (a, Bit)
 vexelToMSetRuntime ZeroM = []

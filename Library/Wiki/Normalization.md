@@ -16,13 +16,13 @@ $$\updownarrow E = \frac{E}{\sum E}$$
 module Wiki.Normalization
 
 import QuickCheck
-import Math.Multiset
-import Math.Singleton.Sing
-import Math.BoxInt
-import Math.Vexel.Vexel
-import Math.SignedFraction
-import Logic.FunctionalProbability
-import Logic.InformationTheory
+import Stage0.Multiset
+import Stage0.Singleton.Sing
+import Stage0.BoxInt
+import Stage0.Vexel.Vexel
+import Stage0.SignedFraction
+import Stage1.FunctionalProbability
+import Stage1.InformationTheory
 
 %default total
 ```

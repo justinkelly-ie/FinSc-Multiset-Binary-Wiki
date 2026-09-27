@@ -32,10 +32,10 @@ For Row 2 specifically, the fraction is structured as:
 ```idris
 module Wiki.Lifted_Polynumbers
 
-import Math.Multiset
-import Math.BoxInt
-import Math.Singleton.Sing
-import Logic.LiftedPolynumber
+import Stage0.Multiset
+import Stage0.BoxInt
+import Stage0.Singleton.Sing
+import Stage1.LiftedPolynumber
 
 %default total
 ```

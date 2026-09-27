@@ -3,10 +3,10 @@
 ```idris
 module Wiki.BinaryScaleTransformSpec
 
-import Math.BoxInt
-import Core.ScaleTransform
-import Math.Singleton.Bit
-import Math.OnSeq.FusedStream
+import Stage0.BoxInt
+import Stage1.ScaleTransform
+import Stage0.Singleton.Bit
+import Stage0.OnSeq.FusedStream
 import Data.Fuel
 import Wiki.Generators
 import public QuickCheck
@@ -76,7 +76,7 @@ public export
 prop_bitObservablePreserved : Bit -> Bool
 prop_bitObservablePreserved b =
   let z : Nat = scaleTransform b
-  in z == Math.Singleton.Bit.bitToNat b
+  in z == Stage0.Singleton.Bit.bitToNat b
 
 public export
 auditBinaryScaleTransformSpecProof : IO Bool

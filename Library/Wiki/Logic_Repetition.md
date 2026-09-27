@@ -15,13 +15,13 @@ This variant utilizes restricted singleton types `Sing` and `Sing1` to guarantee
 ```idris
 module Wiki.Logic_Repetition
 
-import Math.Singleton.Sing
-import Math.Vexel.Vexel
-import Math.Vexel.DepVexel
-import Math.BoxInt
-import Math.Multiset
-import Math.Singleton.SingFraction
-import Math.Vexel.Byte
+import Stage0.Singleton.Sing
+import Stage0.Vexel.Vexel
+import Stage0.Vexel.DepVexel
+import Stage0.BoxInt
+import Stage0.Multiset
+import Stage0.Singleton.SingFraction
+import Stage0.Vexel.Byte
 ```
 
 ### Verification Test: Modulo-2 Annihilation
