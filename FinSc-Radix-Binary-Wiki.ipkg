@@ -1,7 +1,7 @@
 package FinSc-Radix-Binary-Wiki
 version = 0.1.0
 
-depends = FinSc-Radix-Binary, FinSc-Multiset, FinSc-Metric-Substrate, FinSc-Multiset-Transform, base, idris2-QuickCheck, linear
+depends = FinSc-Radix-Binary, FinSc-Multiset, FinSc-Metric-Substrate, FinSc-Phase-Unfolding, base, idris2-QuickCheck, linear
 sourcedir = "Library"
 
 modules = Wiki.BinaryScaleTransformSpec,
