@@ -1,7 +1,7 @@
-package FinSc-Multiset-Binary-Wiki
+package FinSc-Radix-Binary-Wiki
 version = 0.1.0
 
-depends = FinSc-Multiset-Binary, FinSc-Multiset, FinSc-Metric-Substrate, FinSc-Multiset-Transform, base, idris2-QuickCheck, linear
+depends = FinSc-Radix-Binary, FinSc-Multiset, FinSc-Metric-Substrate, FinSc-Multiset-Transform, base, idris2-QuickCheck, linear
 sourcedir = "Library"
 
 modules = Wiki.BinaryScaleTransformSpec,
@@ -29,4 +29,4 @@ modules = Wiki.BinaryScaleTransformSpec,
           Wiki.Verification_Matrix
 
 main = Wiki.Main
-executable = multiset-binary-wiki
+executable = radix-binary-wiki
