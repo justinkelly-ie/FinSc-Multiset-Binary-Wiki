@@ -13,7 +13,7 @@ import Stage0.BoxInt
 import Stage0.SignedFraction
 import Stage1.FunctionalProbability
 
-%default covering
+%default total
 
 ||| Verified Hehner conditional probability: P(Both Girls | At Least One Girl)
 public export

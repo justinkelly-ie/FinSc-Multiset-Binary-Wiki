@@ -120,8 +120,14 @@ mobiusTransformZ : List BoxInt -> List BoxInt
 
 ||| Inverse transform: recovers polynomial coefficients from a dense truth table.
 mobiusInverseZ : List BoxInt -> List BoxInt
+
+||| Zero-allocation deforested stream transducer for the integer Boole-Möbius transform.
+fusedMobiusTransformZ : Fuel -> FusedStream BoxInt -> FusedStream BoxInt
+
+||| Strongly-typed vector Boole-Möbius transform preserving constant space across 2^n dimensions.
+mobiusTransformVect : {k : Nat} -> Vect k BoxInt -> Vect k BoxInt
 ```
 
 ### Transition to Row 3 (Functional Probability)
 
-Because the polynomial plane supports negative integer weights (like $-2xy$ in XOR), it is capable of tracking overlapping boundary conditions. In Row 3, Hehner normalization sums these coefficients over a variable sample space denominator (\\sum w), transforming the arithmetic circuits of Row 2 into exact, rational probability distributions.
+Because the polynomial plane supports negative integer weights (like $-2xy$ in XOR), it is capable of tracking overlapping boundary conditions. In Row 3, Hehner normalization sums these coefficients over a variable sample space denominator ($\sum w$), transforming the arithmetic circuits of Row 2 into exact, rational probability distributions.

@@ -30,17 +30,11 @@ record VerifiedDyadicState where
   bitCount : Nat
   0 dimensionPrf : DyadicDimensionWitness bitCount
 
-||| $O(1)$ allocation deforested dyadic bitstream transducer using fusedHylomorphism
-public export covering
+||| $O(1)$ allocation deforested dyadic bitstream transducer using foldStreamNat
+public export
 fusedDyadicBitstream : Fuel -> List (Nat, Nat) -> Nat
-fusedDyadicBitstream f items =
-  fusedHylomorphism f
-    (\st => case st of
-              [] => Done
-              (b1, b2) :: rest => Yield (b1 + b2) rest)
-    (\val, acc => val + acc)
-    0
-    items
+fusedDyadicBitstream _ items =
+  foldStreamNat (length items) (\acc, (b1, b2) => acc + b1 + b2) 0 (stream items)
 ```
 
 ## ScaleTransform & InvertibleScaleTransform Instances
