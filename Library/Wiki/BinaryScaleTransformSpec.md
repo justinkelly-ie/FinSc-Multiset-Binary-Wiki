@@ -7,6 +7,7 @@ import Stage0.BoxInt
 import Stage1.ScaleTransform
 import Stage0.Singleton.Bit
 import Stage0.OnSeq.FusedStream
+import Stage0.StructuralFuel
 import Data.Fuel
 import Wiki.Generators
 import public QuickCheck
@@ -30,11 +31,11 @@ record VerifiedDyadicState where
   bitCount : Nat
   0 dimensionPrf : DyadicDimensionWitness bitCount
 
-||| $O(1)$ allocation deforested dyadic bitstream transducer using foldStreamNat
+||| $O(1)$ allocation deforested dyadic bitstream transducer using foldStreamNat and model-indexed GohFuel
 public export
-fusedDyadicBitstream : Fuel -> List (Nat, Nat) -> Nat
-fusedDyadicBitstream _ items =
-  foldStreamNat (length items) (\acc, (b1, b2) => acc + b1 + b2) 0 (stream items)
+fusedDyadicBitstream : GohFuel cap -> List (Nat, Nat) -> Nat
+fusedDyadicBitstream fuel items =
+  foldStreamNat (gohSteps fuel) (\acc, (b1, b2) => acc + b1 + b2) 0 (stream items)
 ```
 
 ## ScaleTransform & InvertibleScaleTransform Instances
@@ -78,6 +79,6 @@ auditBinaryScaleTransformSpecProof = do
   let r1 = qc prop_bitScaleTransformBounded
   let r2 = qc prop_bitInvertScaleAdjunction
   let r3 = qc prop_bitObservablePreserved
-  let streamSum = fusedDyadicBitstream (limit 100) [(64, 64), (1, 1)]
+  let streamSum = fusedDyadicBitstream hyperbolicGohFuelModel [(64, 64), (1, 1)]
   pure (r1.pass == Just True && r2.pass == Just True && r3.pass == Just True && streamSum == 130)
 ```
