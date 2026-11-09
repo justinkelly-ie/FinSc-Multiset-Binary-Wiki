@@ -71,7 +71,7 @@ public export
 prop_bitObservablePreserved : Bit -> Bool
 prop_bitObservablePreserved b =
   let z : Nat = scaleTransform b
-  in z == Stage0.Singleton.Bit.bitToNat b
+  in z == Stage0.Bit.bitToNat b
 
 public export
 auditBinaryScaleTransformSpecProof : IO Bool

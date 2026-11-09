@@ -2,13 +2,13 @@ module Wiki.Generators
 
 import public QuickCheck
 import Stage0.BoxInt
-import Stage0.Singleton.Bit
+import Stage0.Bit
 
 %default total
 
 public export
 Arbitrary Bit where
-  arbitrary = map Stage0.Singleton.Bit.natToBit arbitrary
+  arbitrary = map natToBit arbitrary
 
   coarbitrary b gen =
     if isOne b
