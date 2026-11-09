@@ -15,6 +15,7 @@ module Wiki.Quantifiers
 
 import QuickCheck
 import Stage0.Multiset
+import Stage0.Token
 import Stage0.Singleton.Sing
 import Stage0.BoxInt
 import Stage0.Vexel.Vexel
@@ -46,7 +47,7 @@ prop_studentMinMaxQuantifiers : Property
 prop_studentMinMaxQuantifiers =
   let -- Vexel space with weights [Boy -> 3, Girl -> 5]
       vexelSpace : Vexel BoxInt Gender
-      vexelSpace = AddM (MkSing Boy) 3 (AddM (MkSing Girl) 5 ZeroM)
+      vexelSpace = AddM (MkToken Boy) 3 (AddM (MkToken Girl) 5 ZeroM)
       minW = minWeight vexelSpace
       maxW = maxWeight vexelSpace
   in property (minW == Just 3 && maxW == Just 5)

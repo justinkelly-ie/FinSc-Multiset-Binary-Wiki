@@ -19,16 +19,16 @@ import Stage0.Singleton.Bit
 Wildberger's **bification** principle encodes arithmetic in the von Neumann ordinal
 tradition, where every number *is* a set of smaller numbers:
 
-| B₂ value | Multiset notation | Sing notation |
+| B₂ value | Multiset notation | Token notation |
 | :--- | :--- | :--- |
-| **0** | `[]` — the empty multiset | `Zero = MkSing ZeroM` |
-| **1** | `[[]]` — the multiset containing one empty multiset | `One = MkSing (AddM ZeroM 1 ZeroM)` |
+| **0** | `[]` — the empty multiset | `Zero = MkToken ZeroM` |
+| **1** | `[[]]` — the multiset containing one empty multiset | `One = MkToken (AddM ZeroM 1 ZeroM)` |
 
-A `Bit` wraps one of these inside a `Sing` — a singleton multiset `{ m }`.
-`Bit` is a type alias, not a wrapper:
+A `Bit` wraps one of these inside an atomic token carrier `MkToken m`.
+`Bit` is the canonical atomic binary logic carrier:
 
 ```
-Bit = Sing (Multiset BoxInt (Multiset BoxInt Void))
+data Bit = MkToken (Multiset BoxInt (Multiset BoxInt Void))
 ```
 
 ---

@@ -16,6 +16,7 @@ At this positional layer, the states represent binary registers with integer wei
 module Wiki.Logic_Lifted
 
 import QuickCheck
+import Stage0.Token
 import Stage0.Singleton.Sing
 import Stage0.Vexel.Vexel
 import Stage0.BoxInt
@@ -46,14 +47,14 @@ We verify the transition from Row 1 to Row 2 by checking that the binary wire si
 -- Verification property: lifting a full binary singleton maps it to weight 1
 public export
 prop_liftFullSingleton : Eq state => (s : state) ->
-                         liftSingBitGateToBoxInt (AddM (MkSing s) One ZeroM) = AddM (MkSing s) 1 ZeroM
+                         liftSingBitGateToBoxInt (AddM (MkToken s) One ZeroM) = AddM (MkToken s) 1 ZeroM
 prop_liftFullSingleton s = Refl
 
 ||| Student Example: Verifying singleton bit gate lifting
 public export
 prop_studentLiftSingleton : Property
 prop_studentLiftSingleton =
-  property (liftSingBitGateToBoxInt (AddM (MkSing Boy) One ZeroM) == AddM (MkSing Boy) 1 ZeroM)
+  property (liftSingBitGateToBoxInt (AddM (MkToken Boy) One ZeroM) == AddM (MkToken Boy) 1 ZeroM)
 ```
 
 ---

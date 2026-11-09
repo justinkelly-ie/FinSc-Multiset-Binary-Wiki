@@ -8,6 +8,7 @@ module Wiki.Engine_Verification
 import QuickCheck
 import Data.List
 import Data.So
+import Stage0.Token
 import Stage0.Singleton.Sing
 import Stage0.BoxInt
 import Stage0.Multiset
@@ -60,18 +61,18 @@ prop_listAppendCommutative = forAll {a = (List Int, List Int)} {prop = Bool} arb
 We run these tests and observe the engine's output. For the false property, we expect to see a "Falsifiable" message with the offending arguments.
 
 ```idris
-||| Verifies that applyTransformationVexel of notGate on inactive input (only bias active) equals [MkSing (VarState "out")].
+||| Verifies that applyTransformationVexel of notGate on inactive input (only bias active) equals [MkToken (VarState "out")].
 prop_notGateZero : Bool
 prop_notGateZero =
-  let input = AddM (MkSing (ConstState BaseAnchor)) One ZeroM
+  let input = AddM (MkToken (ConstState BaseAnchor)) One ZeroM
       gate = notGate (VarState "in") (VarState "out")
       output = applyTransformationVexel input gate
-  in multisetToList output == multisetToList (AddM (MkSing (VarState "out")) One ZeroM)
+  in multisetToList output == multisetToList (AddM (MkToken (VarState "out")) One ZeroM)
 
 ||| Verifies that applyTransformationVexel of notGate on active input (bias + variable active) equals [].
 prop_notGateOne : Bool
 prop_notGateOne =
-  let input = AddM (MkSing (ConstState BaseAnchor)) One (AddM (MkSing (VarState "in")) One ZeroM)
+  let input = AddM (MkToken (ConstState BaseAnchor)) One (AddM (MkToken (VarState "in")) One ZeroM)
       gate = notGate (VarState "in") (VarState "out")
       output = applyTransformationVexel input gate
   in multisetToList output == []

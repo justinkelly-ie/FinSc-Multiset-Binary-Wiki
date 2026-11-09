@@ -15,6 +15,7 @@ This variant utilizes restricted singleton types `Sing` and `Sing1` to guarantee
 ```idris
 module Wiki.Logic_Repetition
 
+import Stage0.Token
 import Stage0.Singleton.Sing
 import Stage0.Vexel.Vexel
 import Stage0.Vexel.DepVexel
@@ -32,7 +33,7 @@ Under modulo-2 addition (`addVexels`), identical active singleton bits in the Ve
 -- Verification property: adding two identical active singletons annihilates them
 public export
 prop_modulo2Collapse : Eq state => (s : state) -> Bool
-prop_modulo2Collapse s = addVexels (AddM (MkSing s) One ZeroM) (AddM (MkSing s) One ZeroM) == ZeroM
+prop_modulo2Collapse s = addVexels (AddM (MkToken s) One ZeroM) (AddM (MkToken s) One ZeroM) == ZeroM
 ```
 
 ---

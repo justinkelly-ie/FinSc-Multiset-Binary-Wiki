@@ -16,6 +16,7 @@ Every logic wire or register pin is represented as a coordinate type. For exampl
 ```idris
 module Wiki.Bit_vexel
 
+import Stage0.Token
 import Stage0.Singleton.Sing
 import Stage0.Vexel.Vexel
 import Stage0.Multiset
@@ -33,7 +34,7 @@ import Stage0.Singleton.SingFraction
 
 vexelToMSetRuntime : Vexel Bit a -> List (a, Bit)
 vexelToMSetRuntime ZeroM = []
-vexelToMSetRuntime (AddM (MkSing x) w xs) = (x, w) :: vexelToMSetRuntime xs
+vexelToMSetRuntime (AddM (MkToken x) w xs) = (x, w) :: vexelToMSetRuntime xs
 
 -- Define the pins of our logic gate
 data Pin = InA | InB | OutPin
@@ -53,7 +54,7 @@ A **Vexel** represents the state vector of our pins. In Row 1, a `Byte` is defin
 ```idris
 -- A Byte representing InA = 1 and InB = 0, along with the constant high bias anchor
 myInputState : Byte (LogicState Pin)
-myInputState = AddM (MkSing (ConstState BaseAnchor)) One (AddM (MkSing (VarState InA)) One ZeroM)
+myInputState = AddM (MkToken (ConstState BaseAnchor)) One (AddM (MkToken (VarState InA)) One ZeroM)
 
 ```
 

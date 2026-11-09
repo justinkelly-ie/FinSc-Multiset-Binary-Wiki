@@ -16,6 +16,7 @@ The Singleton type system uses two principal primitives to represent coordinates
 ```idris
 module Wiki.Logic_Explainer
 
+import Stage0.Token
 import Stage0.Singleton.Sing
 import Stage0.Vexel.Vexel
 import Stage0.Vexel.DepVexel
@@ -25,8 +26,8 @@ import Stage0.BoxInt
 import Stage0.Multiset
 
 -- A dependently typed singleton of length exactly 1
-0 DepSing1 : (a : Type) -> (token : Sing a) -> Type
-DepSing1 a (MkSing x) = DepVexel a [x]
+0 DepSing1 : (a : Type) -> (token : Token a) -> Type
+DepSing1 a (MkToken x) = DepVexel a [x]
 
 -- A dependently typed singleton of length at most 1 (xs is empty or a singleton)
 0 DepSing : (a : Type) -> (xs : Vexel Bit a) -> Type
@@ -41,7 +42,7 @@ We verify that the type system strictly prevents building values that exceed the
 -- Verification property: Sing1 cannot be empty (compilation failure if empty)
 public export
 prop_sing1NonEmpty : Sing1 a -> Bool
-prop_sing1NonEmpty (MkSing coord) = True
+prop_sing1NonEmpty (MkToken coord) = True
 
 -- Verification property: DepSing1 contains exactly one element
 public export

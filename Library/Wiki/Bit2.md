@@ -24,9 +24,9 @@ the **carrier structure**:
 
 | | `Bit` | `Bit2` |
 | :--- | :--- | :--- |
-| Carrier | `Sing (Multiset BoxInt (Multiset BoxInt Void))` | `DepMultiset BoxInt (Multiset BoxInt (Multiset BoxInt Void)) idx` |
+| Carrier | `Token (Multiset BoxInt (Multiset BoxInt Void))` | `DepMultiset BoxInt (Multiset BoxInt (Multiset BoxInt Void)) idx` |
 | Index tracked | no (runtime only) | yes (type-level `Multiset`) |
-| Constructor style | `MkSing m` | `DepAddM m 1 DepEmptyM` |
+| Constructor style | `MkToken m` | `DepAddM m 1 DepEmptyM` |
 
 Because the two `Bit2` values carry **different type-level indices**, they cannot
 share a single type alias. The runtime `Bit2` data type wraps both and erases
@@ -228,13 +228,13 @@ This is the analogue of `fromSing` in `Bit`. Add
 
 ## Bit vs Bit2 — Comparison
 
-| Aspect | `Bit` (`Sing`) | `Bit2` (`DepMultiset`) |
+| Aspect | `Bit` (`Token`) | `Bit2` (`DepMultiset`) |
 | :--- | :--- | :--- |
-| Zero constructor | `MkSing ZeroM` | `DepAddM ZeroM 1 DepEmptyM` |
-| One constructor | `MkSing (AddM ZeroM 1 ZeroM)` | `DepAddM (AddM ZeroM 1 ZeroM) 1 DepEmptyM` |
+| Zero constructor | `MkToken ZeroM` | `DepAddM ZeroM 1 DepEmptyM` |
+| One constructor | `MkToken (AddM ZeroM 1 ZeroM)` | `DepAddM (AddM ZeroM 1 ZeroM) 1 DepEmptyM` |
 | Type-level index | none | `ZeroIdx` / `OneIdx` |
-| Runtime type | type alias | `data Bit2` sum type |
-| Extraction | `fromSing` | `freezeBit2` / `freezeDep` |
+| Runtime type | `data Bit` token carrier | `data Bit2` sum type |
+| Extraction | `fromToken` | `freezeBit2` / `freezeDep` |
 | B₂ arithmetic | identical | identical |
 | Linear instances | identical | identical |
 

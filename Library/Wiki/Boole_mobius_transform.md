@@ -11,6 +11,7 @@ module Wiki.Boole_mobius_transform
 import QuickCheck
 import Data.List
 import Data.Nat
+import Stage0.Token
 import Stage0.Singleton.Sing
 import Stage0.BoxInt
 import Stage0.Multiset
@@ -91,7 +92,7 @@ truthTable3 : (Bit -> Bit -> Bit -> Bit) -> Byte Nat
 truthTable3 f =
   let list = concatMap (\i =>
                let val = f (bitOf 0 (cast i)) (bitOf 1 (cast i)) (bitOf 2 (cast i))
-               in if val == One then [MkSing i] else []) [0..7]
+               in if val == One then [MkToken i] else []) [0..7]
   in fromList (map (\x => (x, One)) list)
 
 -- Premise X: g * s
