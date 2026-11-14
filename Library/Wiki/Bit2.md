@@ -12,7 +12,7 @@
 ```idris
 module Wiki.Bit2
 
-import Stage0.Singleton.Bit2
+import Stage0.Bit2
 ```
 
 ---

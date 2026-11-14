@@ -5,7 +5,7 @@ module Wiki.BinaryScaleTransformSpec
 
 import Stage0.BoxInt
 import Stage1.ScaleTransform
-import Stage0.Singleton.Bit
+import Stage0.Bit
 import Stage0.OnSeq.FusedStream
 import Stage0.StructuralFuel
 import Data.Fuel

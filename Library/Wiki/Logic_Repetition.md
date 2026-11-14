@@ -16,9 +16,8 @@ This variant utilizes restricted singleton types `Sing` and `Sing1` to guarantee
 module Wiki.Logic_Repetition
 
 import Stage0.Token
-import Stage0.Singleton.Sing
+import Stage0.Token
 import Stage0.Vexel.Vexel
-import Stage0.Vexel.DepVexel
 import Stage0.BoxInt
 import Stage0.Multiset
 import Stage0.Singleton.SingFraction

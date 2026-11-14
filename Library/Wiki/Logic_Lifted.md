@@ -17,12 +17,10 @@ module Wiki.Logic_Lifted
 
 import QuickCheck
 import Stage0.Token
-import Stage0.Singleton.Sing
 import Stage0.Vexel.Vexel
 import Stage0.BoxInt
-import Stage0.Vexel.DepVexel
 import Stage0.Multiset
-import Stage0.DepMaxel
+import Stage0.Pixel
 import Stage0.Singleton.SingFraction
 import Stage1.FunctionalProbability
 
@@ -32,7 +30,7 @@ ArithmeticState state = Vexel BoxInt state
 
 ||| Denominator remains locked to TrivialBase for type safety.
 0 ArithmeticDenom : Type
-ArithmeticDenom = Sing TrivialBase
+ArithmeticDenom = Token TrivialBase
 
 ||| A dependently typed arithmetic register state tracking coordinates at compile time.
 0 DepArithmeticState : (state : Type) -> (xs : Vexel Bit state) -> Type

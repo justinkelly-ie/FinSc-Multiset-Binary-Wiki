@@ -17,13 +17,12 @@ Every logic wire or register pin is represented as a coordinate type. For exampl
 module Wiki.Bit_vexel
 
 import Stage0.Token
-import Stage0.Singleton.Sing
+import Stage0.Token
 import Stage0.Vexel.Vexel
 import Stage0.Multiset
 import Stage0.Pixel
 import Stage0.IntPolynumber
-import Stage0.Vexel.DepVexel
-import Stage0.Singleton.Bit
+import Stage0.Bit
 import Stage0.BoxInt
 import Stage0.Vexel.Transformation
 import Stage0.Singleton.SBFMset

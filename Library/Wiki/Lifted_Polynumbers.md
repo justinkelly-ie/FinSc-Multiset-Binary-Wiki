@@ -34,7 +34,7 @@ module Wiki.Lifted_Polynumbers
 
 import Stage0.Multiset
 import Stage0.BoxInt
-import Stage0.Singleton.Sing
+import Stage0.Token
 import Stage1.LiftedPolynumber
 
 %default total

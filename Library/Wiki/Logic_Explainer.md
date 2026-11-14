@@ -17,10 +17,8 @@ The Singleton type system uses two principal primitives to represent coordinates
 module Wiki.Logic_Explainer
 
 import Stage0.Token
-import Stage0.Singleton.Sing
 import Stage0.Vexel.Vexel
-import Stage0.Vexel.DepVexel
-import Stage0.Singleton.Bit
+import Stage0.Bit
 import Stage0.DepMultiset
 import Stage0.BoxInt
 import Stage0.Multiset
@@ -39,14 +37,14 @@ DepSing a xs = DepVexel a (vexelToMSet xs)
 We verify that the type system strictly prevents building values that exceed the designated singleton boundaries, ensuring division-by-zero protection.
 
 ```idris
--- Verification property: Sing1 cannot be empty (compilation failure if empty)
+-- Verification property: Token cannot be empty (compilation failure if empty)
 public export
-prop_sing1NonEmpty : Sing1 a -> Bool
+prop_sing1NonEmpty : Token a -> Bool
 prop_sing1NonEmpty (MkToken coord) = True
 
 -- Verification property: DepSing1 contains exactly one element
 public export
-prop_depSing1HasOne : {token : Sing a} -> DepSing1 a token -> Nat
+prop_depSing1HasOne : {token : Token a} -> DepSing1 a token -> Nat
 prop_depSing1HasOne _ = 1
 ```
 

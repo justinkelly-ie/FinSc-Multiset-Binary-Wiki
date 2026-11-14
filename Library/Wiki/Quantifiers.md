@@ -16,7 +16,7 @@ module Wiki.Quantifiers
 import QuickCheck
 import Stage0.Multiset
 import Stage0.Token
-import Stage0.Singleton.Sing
+import Stage0.Token
 import Stage0.BoxInt
 import Stage0.Vexel.Vexel
 import Stage1.FunctionalProbability

@@ -2,7 +2,7 @@ module Wiki.Main
 
 import System
 import Wiki.BinaryScaleTransformSpec
-import Stage0.Singleton.Bit
+import Stage0.Bit
 import Stage1.BoolePolynumber
 
 %default total
