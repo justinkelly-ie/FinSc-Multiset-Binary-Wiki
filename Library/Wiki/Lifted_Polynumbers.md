@@ -47,11 +47,11 @@ import Stage1.LiftedPolynumber
 ### 1. `Monomial v` — Product Terms
 **File:** `Boole/LiftedPolynumber.idr` | **Source:** Wildberger Lecture 256
 
-Instead of character strings, a monomial (such as $xy$ or $xyz$) is modeled as a multiset of variable tokens of type `v` with `BoxInt` counts:
+Instead of character strings, a monomial (such as $xy$ or $xyz$) is modeled as a carrier of variable tokens of type `v` with `BoxInt` counts:
 
 ```text
 Monomial : Type -> Type
-Monomial v = Multiset BoxInt v
+Monomial v = Carrier v
 ```
 
 ### 2. `LiftedPolynumber v` — The Numerator Box
@@ -62,7 +62,7 @@ A lifted polynumber polynomial is a linear combination of these monomials, weigh
 ```text
 record LiftedPolynumber (v : Type) where
   constructor MKPolynumber
-  underlyingPolynomial : Multiset BoxInt (Monomial v)
+  underlyingPolynomial : Carrier (Monomial v)
 ```
 
 ---
@@ -76,11 +76,9 @@ $$x^2 = x$$
 Our implementation enforces this structural rule at the data-type level via `idempotentCollapse`, clamping positive counts down to exactly 1 and pruning non-positive counts:
 
 ```text
-idempotentCollapse : Eq v => Monomial v -> Monomial v
-idempotentCollapse mono =
-  let entries = multisetToList mono
-      collapsedEntries = concatMap (\(var, count) => if count > 0 then [(var, 1)] else []) entries
-  in fromList collapsedEntries
+idempotentCollapse : Ord v => Monomial v -> Monomial v
+idempotentCollapse =
+  foldBoxTreeL (\acc, (var, count) => if count > 0 then setBoxTree var (intToBoxInt 1) acc else acc) BoxLeaf
 ```
 
 ---
@@ -104,8 +102,8 @@ $$(xy) \cdot (yz) \mapsto x \cdot y^2 \cdot z \xrightarrow{\text{idempotentColla
 
 This is handled automatically by `mulMonomial`:
 ```text
-mulMonomial : Eq v => Monomial v -> Monomial v -> Monomial v
-mulMonomial m1 m2 = idempotentCollapse (addMultiset m1 m2)
+mulMonomial : Ord v => Monomial v -> Monomial v -> Monomial v
+mulMonomial m1 m2 = idempotentCollapse (m1 <+> m2)
 ```
 
 ---
